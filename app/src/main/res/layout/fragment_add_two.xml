@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/iv_add"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="120dp"
+        android:src="@drawable/ic_add2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/tv_add_one"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/noto_serif"
+        android:text="Patience"
+        android:textColor="#222222"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_add" />
+
+
+    <TextView
+        android:id="@+id/tv_add_two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="14dp"
+        android:fontFamily="@font/noto_serif"
+        android:text="Take your time to learn. Develop a habit and \nmake it a part of your daily life"
+        android:textAlignment="center"
+        android:textColor="#9094B5"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_add_one" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="#353E81"
+        android:clickable="false"
+        android:fontFamily="@font/noto_serif"
+        android:padding="10dp"
+        android:text="Next"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:cornerRadius="10dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_add_two" />
+
+    <TextView
+        android:id="@+id/tv_add_three"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="14dp"
+        android:fontFamily="@font/noto_serif"
+        android:text="Are you already using EducatorHub? Enter"
+        android:textAlignment="center"
+        android:textColor="#505050"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_next" />
+</androidx.constraintlayout.widget.ConstraintLayout>
