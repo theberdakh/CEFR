@@ -96,7 +96,5 @@ dependencies {
 
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
-    implementation 'com.github.criminact:OTPView:Tag'
-
     implementation 'io.github.chaosleung:pinview:1.4.4'
 }
