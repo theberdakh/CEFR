@@ -1,8 +1,9 @@
-package com.example.cefr
+package com.example.cefr.view.previous
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import com.example.cefr.R
 import com.example.cefr.databinding.FragmentPreviousBinding
 
 class PreviousFragment : Fragment(R.layout.fragment_previous) {
