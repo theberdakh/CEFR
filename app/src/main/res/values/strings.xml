@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">CEFR</string>
+    <string name="enter">Enter</string>
+    <string name="text_forgot_password"><b> <font color='#353E81'>Forgot your password?</font> </b></string>
+    <string name="text_google"><b><font color='#4285f4'>G</font></b><b><font color='#ea4335'>o</font></b><b><font color='#fbbc05'>o</font></b><b><font color='#4285f4'>g</font></b><b><font color='#34a853'>l</font></b><b><font color='#ea4335'>e</font></b></string>
+    <string name="or">--------------------or--------------------</string>
+    <string name="text_register_to">No registered yet?<b> <font color='#353E81'>Registration</font> </b></string>
+    <string name="text_register">Registration</string>
+    <string name="text_information">Information</string>
+    <string name="text_password">Password</string>
+    <string name="text_next">Next</string>
+    <string name="text_confirm">Confirmation</string>
 </resources>

@@ -3,5 +3,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="ripple_effect_color">#E0E0E0</color>
-    <color name="brand_color_first">#F8F9FA</color>
+    <color name="brand_color_first">#F4F2EE</color>
+    <color name="typography_secondary">#A1A1A1</color>
+    <color name="login_back_color">#ECEAEA</color>
+    <color name="brand_color_second">#353E81</color>
 </resources>

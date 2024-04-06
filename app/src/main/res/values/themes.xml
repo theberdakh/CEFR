@@ -6,4 +6,8 @@
     </style>
 
     <style name="Theme.CEFR" parent="Base.Theme.CEFR" />
+
+    <style name="ThemeOverlay.AppTheme.TextInputEditText.Outlined" parent="">
+        <item name="colorPrimary">@color/brand_color_first</item>
+    </style>
 </resources>
