@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/brand_color_first">
+
+    <ImageView
+        android:id="@+id/iv_add"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="120dp"
+        android:src="@drawable/dictionary_amico"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_add_one"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/noto_serif"
+        android:text="Student"
+        android:textColor="#222222"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_add" />
+
+    <TextView
+        android:id="@+id/tv_add_two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="14dp"
+        android:fontFamily="@font/noto_serif"
+        android:text="A student is a knowledge seeker who participates \nin learning under the guidance of a teacher."
+        android:textAlignment="center"
+        android:textColor="#9094B5"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_add_one" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_btn_student"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="12dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="1dp"
+        app:layout_constraintBottom_toTopOf="@id/cv_btn_teacher">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_student"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_type"
+            android:clickable="false"
+            android:elevation="5dp"
+            android:fontFamily="@font/noto_serif"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Teacher"
+            android:textAllCaps="false"
+            android:textColor="@color/brand_color_second"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:cornerRadius="16dp"
+            app:strokeColor="#000000"
+            app:strokeWidth="1dp" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_btn_teacher"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="25dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="1dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_teacher"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_type"
+            android:clickable="false"
+            android:elevation="5dp"
+            android:fontFamily="@font/noto_serif"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Student"
+            android:textAllCaps="false"
+            android:textColor="@color/brand_color_second"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:cornerRadius="16dp"
+            app:strokeColor="#000000"
+            app:strokeWidth="1dp" />
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

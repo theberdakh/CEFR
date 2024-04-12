@@ -1,4 +1,4 @@
-package com.example.cefr.view.forgot
+package com.example.cefr.view.entering.confirm
 
 import android.os.Bundle
 import android.view.View
@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import com.example.cefr.R
 import com.example.cefr.databinding.FragmentForgotPasswordBinding
 
-class ForgotPasswordFragment : Fragment(R.layout.fragment_forgot_password) {
+class ConfirmFragment : Fragment(R.layout.fragment_confirm) {
 
     private lateinit var binding: FragmentForgotPasswordBinding
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

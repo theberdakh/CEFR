@@ -7,4 +7,5 @@
     <color name="typography_secondary">#A1A1A1</color>
     <color name="login_back_color">#ECEAEA</color>
     <color name="brand_color_second">#353E81</color>
+    <color name="gray">#D9D9D9</color>
 </resources>

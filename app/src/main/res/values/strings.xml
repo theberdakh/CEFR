@@ -10,4 +10,9 @@
     <string name="text_password">Password</string>
     <string name="text_next">Next</string>
     <string name="text_confirm">Confirmation</string>
+
+    <string name="student">Student</string>
+    <string name="teacher">Teacher</string>
+    <string name="student_desc">A student is a knowledge seeker who participates\nin learning under the guidance of a teacher.</string>
+    <string name="teacher_desc">The teacher is a guide and inspirer who helps\nstudents master knowledge and skills.</string>
 </resources>

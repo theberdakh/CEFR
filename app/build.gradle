@@ -2,8 +2,8 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
-    id 'com.google.gms.google-services'
     id 'androidx.navigation.safeargs.kotlin'
+//    id 'com.google.gms.google-services'
 }
 
 android {
@@ -94,7 +94,12 @@ dependencies {
     //LottieAnimation
     implementation("com.airbnb.android:lottie:6.4.0")
 
+    //Bottom Navigation
+    implementation("com.google.android.material:material:1.11.0")
+
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+//    implementation 'com.github.criminact:OTPView:Tag'
 
     implementation 'io.github.chaosleung:pinview:1.4.4'
 }

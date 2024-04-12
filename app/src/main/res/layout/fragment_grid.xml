@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3" />
+
+    <LinearLayout
+        android:id="@+id/dot_indicator"
+        android:layout_width="42dp"
+        android:layout_height="10dp"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_pager">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/dot_1"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginEnd="6dp"
+            android:src="@color/brand_color_second" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/dot_2"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:src="@color/gray" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/dot_3"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginStart="6dp"
+            android:src="@color/gray" />
+
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="#353E81"
+        android:clickable="false"
+        android:fontFamily="@font/noto_serif"
+        android:padding="10dp"
+        android:text="@string/text_next"
+        android:elevation="0dp"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintVertical_bias="0.90"
+        android:textSize="18sp"
+        app:cornerRadius="16dp"
+        app:layout_constraintBottom_toTopOf="@id/tv_entering"
+        app:layout_constraintTop_toBottomOf="@id/view_pager" />
+
+    <TextView
+        android:id="@+id/tv_entering"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="14dp"
+        android:layout_marginBottom="2dp"
+        android:fontFamily="@font/noto_serif"
+        android:text="Are you already using EducatorHub? Enter"
+        android:textAlignment="center"
+        android:textColor="#505050"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

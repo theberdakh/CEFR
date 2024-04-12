@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/gridFragment">
+
+        <fragment
+            android:id="@+id/mainFragment"
+            android:name="com.example.cefr.view.main.MainFragment"
+            android:label="MainFragment"
+            tools:layout="@layout/fragment_main" />
+        <fragment
+            android:id="@+id/profileFragment"
+            android:name="com.example.cefr.view.profile.ProfileFragment"
+            android:label="ProfileFragment"
+            tools:layout="@layout/fragment_profile" />
+        <fragment
+            android:id="@+id/liveFragment"
+            android:name="com.example.cefr.LiveFragment"
+            android:label="LiveFragment"
+            tools:layout="@layout/fragment_live" />
+
+    <fragment
+        android:id="@+id/gridFragment"
+        android:name="com.example.cefr.view.entering.grid.GridFragment"
+        android:label="GridFragment"
+        tools:layout="@layout/fragment_grid">
+        <action
+            android:id="@+id/action_gridFragment_to_typeFragment"
+            app:destination="@id/typeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/typeFragment"
+        android:name="com.example.cefr.view.type.TypeFragment"
+        android:label="TypeFragment"
+        tools:layout="@layout/fragment_type">
+        <action
+            android:id="@+id/action_typeFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.example.cefr.view.entering.sign_in.SignInFragment"
+        android:label="SignInFragment"
+        tools:layout="@layout/fragment_sign_in" />
+</navigation>

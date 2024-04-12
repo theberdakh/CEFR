@@ -1,4 +1,4 @@
-package com.example.cefr.view.sign_in
+package com.example.cefr.view.entering.sign_in
 
 import android.os.Bundle
 import android.view.View
