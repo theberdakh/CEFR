@@ -5,9 +5,9 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
-import com.example.cefr.Constants
 import com.example.cefr.R
 import com.example.cefr.databinding.FragmentGridBinding
+import com.example.cefr.utils.Constants
 import com.example.cefr.view.MainActivity
 
 class GridFragment : Fragment(R.layout.fragment_grid) {
@@ -78,6 +78,11 @@ class GridFragment : Fragment(R.layout.fragment_grid) {
                 binding.dot3.setImageResource(R.color.brand_color_second)
             }
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mainActivity.settingsBottomNavigation(true)
     }
 }
 

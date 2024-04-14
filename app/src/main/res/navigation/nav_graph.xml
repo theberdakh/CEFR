@@ -3,23 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/gridFragment">
+    app:startDestination="@id/splashFragment">
 
-        <fragment
-            android:id="@+id/mainFragment"
-            android:name="com.example.cefr.view.main.MainFragment"
-            android:label="MainFragment"
-            tools:layout="@layout/fragment_main" />
-        <fragment
-            android:id="@+id/profileFragment"
-            android:name="com.example.cefr.view.profile.ProfileFragment"
-            android:label="ProfileFragment"
-            tools:layout="@layout/fragment_profile" />
-        <fragment
-            android:id="@+id/liveFragment"
-            android:name="com.example.cefr.LiveFragment"
-            android:label="LiveFragment"
-            tools:layout="@layout/fragment_live" />
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.cefr.view.main.MainFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/fragment_main" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.cefr.view.profile.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/liveFragment"
+        android:name="com.example.cefr.LiveFragment"
+        android:label="LiveFragment"
+        tools:layout="@layout/fragment_live" />
 
     <fragment
         android:id="@+id/gridFragment"
@@ -43,5 +43,34 @@
         android:id="@+id/signInFragment"
         android:name="com.example.cefr.view.entering.sign_in.SignInFragment"
         android:label="SignInFragment"
-        tools:layout="@layout/fragment_sign_in" />
+        tools:layout="@layout/fragment_sign_in">
+        <action
+            android:id="@+id/action_signInFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_signInFragment_to_forgotPasswordFragment"
+            app:destination="@id/forgotPasswordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/forgotPasswordFragment"
+        android:name="com.example.cefr.view.entering.forgot.ForgotPasswordFragment"
+        android:label="ForgotPasswordFragment"
+        tools:layout="@layout/fragment_forgot_password" />
+    <fragment
+        android:id="@+id/splashFragment"
+        tools:layout="@layout/fragment_splash"
+        android:name="com.example.cefr.view.splash.SplashFragment"
+        android:label="SplashFragment" >
+        <action
+            android:id="@+id/action_splashFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_gridFragment"
+            app:destination="@id/gridFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/liveActivity"
+        android:name="com.example.cefr.LiveActivity"
+        android:label="activity_live"
+        tools:layout="@layout/activity_live" />
 </navigation>

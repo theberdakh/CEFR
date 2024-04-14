@@ -8,4 +8,11 @@
     <color name="login_back_color">#ECEAEA</color>
     <color name="brand_color_second">#353E81</color>
     <color name="gray">#D9D9D9</color>
+
+    <color name="o20_black">#4D000000</color>
+    <color name="o60_black">#99000000</color>
+    <color name="o70_black">#B3000000</color>
+    <color name="red">#E82626</color>
+    <color name="o70_333333">#B3333333</color>
+    <color name="o70_EFEFEF">#B3EFEFEF</color>
 </resources>

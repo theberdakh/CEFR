@@ -8,18 +8,26 @@ import androidx.navigation.fragment.findNavController
 import com.example.cefr.R
 import com.example.cefr.databinding.FragmentTypeBinding
 import com.example.cefr.utils.getColor
+import com.example.cefr.view.MainActivity
 
 class TypeFragment : Fragment(R.layout.fragment_type) {
     private lateinit var binding: FragmentTypeBinding
     private var count = 1
     private var lastSelectedItem = -1
+    private lateinit var mainActivity: MainActivity
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentTypeBinding.bind(view)
 
+        binding = FragmentTypeBinding.bind(view)
+        initVariables()
         initListeners()
 
+    }
+
+    private fun initVariables() {
+        mainActivity = requireActivity() as MainActivity
+        mainActivity.settingsBottomNavigation(false)
     }
 
     private fun initListeners() {
@@ -78,5 +86,10 @@ class TypeFragment : Fragment(R.layout.fragment_type) {
             binding.tvAddOne.setText(R.string.student)
             binding.tvAddTwo.setText(R.string.student_desc)
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mainActivity.settingsBottomNavigation(true)
     }
 }

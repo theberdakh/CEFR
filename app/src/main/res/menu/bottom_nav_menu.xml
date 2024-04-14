@@ -7,7 +7,7 @@
         android:title="Search" />
 
     <item
-        android:id="@+id/liveFragment"
+        android:id="@+id/liveActivity"
         android:title="" />
 
     <item

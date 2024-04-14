@@ -1,7 +1,7 @@
 package com.example.cefr.di
 
 import com.example.cefr.data.remote.interceptors.AccessTokenInterceptor
-import com.example.cefr.data.remote.interceptors.CefrApi
+import com.example.cefr.data.remote.CefrApi
 import com.example.cefr.utils.Constants
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
