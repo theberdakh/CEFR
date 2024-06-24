@@ -15,11 +15,6 @@
         android:name="com.example.cefr.view.profile.ProfileFragment"
         android:label="ProfileFragment"
         tools:layout="@layout/fragment_profile" />
-    <fragment
-        android:id="@+id/liveFragment"
-        android:name="com.example.cefr.LiveFragment"
-        android:label="LiveFragment"
-        tools:layout="@layout/fragment_live" />
 
     <fragment
         android:id="@+id/gridFragment"

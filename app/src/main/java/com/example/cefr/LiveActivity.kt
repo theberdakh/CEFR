@@ -28,8 +28,11 @@ import java.io.File
 class LiveActivity : AppCompatActivity(), ConnectCheckerRtmp,
     SurfaceHolder.Callback, View.OnTouchListener {
 
-    private var streamKey: String? = "ztyc-p893-jatc-6y0t-fs1b"
-    private var rtmpip: String? = "rtmp://a.rtmp.youtube.com/live2/"
+//    private var streamKey: String? = "ztyc-p893-jatc-6y0t-fs1b" Damir youtube
+//    private var rtmpip: String? = "rtmp://a.rtmp.youtube.com/live2/"
+    private var rtmpip: String? = "rtmp://arn04.contribute.live-video.net/app/"
+    private var streamKey: String? = "live_509012821_J6GzFWy6vraGlObtJC0XHI7QbLh43v" //Amir twitch
+//    private var streamKey: String? = "live_1066953762_f77bVwCLe4D4wIRukmsjlZJZwtjvfS"//Damir
     private lateinit var rtmpCamera1: RtmpCamera1
 
     private var user: String = ""
@@ -194,7 +197,7 @@ class LiveActivity : AppCompatActivity(), ConnectCheckerRtmp,
         }
 
         binding.broadcastCloseArea.setOnClickListener {
-            finish()
+            this.finish()
         }
     }
 

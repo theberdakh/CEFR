@@ -10,9 +10,11 @@
         android:id="@+id/profile_tablayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/brand_color_first"
+        android:background="@color/white"
         android:orientation="horizontal"
-        android:padding="12dp"
+        android:paddingHorizontal="12dp"
+        android:elevation="5dp"
+        android:paddingVertical="8dp"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -103,9 +105,9 @@
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"
-        android:layout_width="0dp"
-        android:layout_height="200dp"
-        android:layout_marginHorizontal="36dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
         android:layout_marginTop="10dp"
         android:orientation="horizontal"
         android:visibility="visible"
