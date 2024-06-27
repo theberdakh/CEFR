@@ -25,7 +25,7 @@ class RVAdapter : ListAdapter<LiveVideoDataClass, RVAdapter.ViewHolder>(object :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
             val data = getItem(position)
-            binding.tvOne.text = "Teacher: ${data.id}"
+            binding.tvOne.text = "Teacher: ${1 + data.id}"
             binding.tvTwo.text = "Subject: ${data.id}"
             binding.tvThree.text = "Time: ${data.id}"
         }

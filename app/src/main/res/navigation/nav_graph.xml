@@ -9,7 +9,11 @@
         android:id="@+id/mainFragment"
         android:name="com.example.cefr.view.main.MainFragment"
         android:label="MainFragment"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_webViewFragment"
+            app:destination="@id/webViewFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.cefr.view.profile.ProfileFragment"
@@ -53,9 +57,9 @@
         tools:layout="@layout/fragment_forgot_password" />
     <fragment
         android:id="@+id/splashFragment"
-        tools:layout="@layout/fragment_splash"
         android:name="com.example.cefr.view.splash.SplashFragment"
-        android:label="SplashFragment" >
+        android:label="SplashFragment"
+        tools:layout="@layout/fragment_splash">
         <action
             android:id="@+id/action_splashFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
@@ -68,4 +72,15 @@
         android:name="com.example.cefr.LiveActivity"
         android:label="activity_live"
         tools:layout="@layout/activity_live" />
+
+    <fragment
+        android:id="@+id/webViewFragment"
+        android:name="com.example.cefr.WebViewFragment"
+        android:label="WebViewFragment"
+        tools:layout="@layout/fragment_webview">
+
+        <argument
+            android:name="channelName"
+            app:argType="string" />
+    </fragment>
 </navigation>

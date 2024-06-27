@@ -7,13 +7,17 @@ import com.example.cefr.R
 import com.example.cefr.RVAdapter
 import com.example.cefr.data.models.LiveVideoDataClass
 import com.example.cefr.databinding.FragmentProfileBinding
+import com.example.cefr.utils.LocalStorage
 import com.example.cefr.view.ViewPagerAdapter
+import org.koin.android.ext.android.inject
 
 class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
     private lateinit var binding: FragmentProfileBinding
     private lateinit var vpAdapter: ViewPagerAdapter
     private lateinit var rvAdapter: RVAdapter
+    private val localStorage: LocalStorage by inject()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -33,6 +37,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         }
         vpAdapter.submitList(list)
 
+        binding.tvOne.text = localStorage.fullName
         binding.rcPrevious.adapter = rvAdapter
         val list2 = mutableListOf<LiveVideoDataClass>()
         repeat(2) {

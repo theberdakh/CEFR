@@ -21,12 +21,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="10dp"
+                android:layout_marginStart="16dp"
                 android:fontFamily="@font/noto_serif"
                 android:text="Soon"
                 android:textColor="#222222"
                 android:textSize="14sp"
                 android:textStyle="bold"
-                android:layout_marginStart="16dp"
                 app:layout_constraintStart_toStartOf="@id/viewPager"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,9 +35,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
+                android:orientation="horizontal"
                 android:paddingHorizontal="16dp"
                 android:paddingVertical="4dp"
-                android:orientation="horizontal"
                 android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -70,62 +70,385 @@
                 app:layout_constraintTop_toTopOf="@id/tv_seven"
                 app:tint="@color/black" />
 
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rc_previous"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintTop_toBottomOf="@id/tv_seven"
-                tools:itemCount="2"
-                tools:listitem="@layout/item_previous" />
-
-            <TextView
-                android:id="@+id/tv_eight"
-                android:layout_width="wrap_content"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_inner_one"
+                android:layout_width="342dp"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="10dp"
-                android:layout_marginStart="12dp"
-                android:fontFamily="@font/noto_serif"
-                android:text="Tomorrow"
-                android:textColor="#222222"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@id/viewPager"
-                app:layout_constraintTop_toBottomOf="@id/rc_previous" />
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:backgroundTint="#ECEAEA"
+                android:minHeight="60dp"
+                app:cardCornerRadius="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_seven">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rc_tomorrow"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintTop_toBottomOf="@id/tv_eight"
-                tools:itemCount="1"
-                tools:listitem="@layout/item_previous" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="#ECEAEA">
 
-            <TextView
-                android:id="@+id/tv_nine"
-                android:layout_width="wrap_content"
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/profile_image_one"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:layout_marginVertical="4dp"
+                        android:layout_marginStart="14dp"
+                        android:elevation="2dp"
+                        android:src="@drawable/ellipse"
+                        app:civ_border_color="@color/black"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:id="@+id/tv_one_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:fontFamily="@font/noto_serif"
+                        android:text="Amir Baymuratov"
+                        android:textColor="#353E81"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@id/profile_image_one"
+                        app:layout_constraintTop_toTopOf="@id/profile_image_one" />
+
+
+                    <TextView
+                        android:id="@+id/tv_two_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:fontFamily="@font/noto_serif"
+                        android:text="Math"
+                        android:textColor="#353E81"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@id/profile_image_one"
+                        app:layout_constraintTop_toBottomOf="@id/tv_one_1" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:fontFamily="@font/noto_serif"
+                        android:text="24 January 20:00"
+                        android:textColor="#353E81"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_inner_two"
+                android:layout_width="342dp"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="10dp"
-                android:fontFamily="@font/noto_serif"
-                android:text="Top Leaders"
-                android:textColor="#222222"
-                android:layout_marginStart="12dp"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@id/viewPager"
-                app:layout_constraintTop_toBottomOf="@id/rc_tomorrow" />
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:backgroundTint="#ECEAEA"
+                android:minHeight="60dp"
+                app:cardCornerRadius="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/card_inner_one">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rc_top_leaders"
-                android:layout_width="match_parent"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="#ECEAEA">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/profile_image_two"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:layout_marginVertical="4dp"
+                        android:layout_marginStart="14dp"
+                        android:elevation="2dp"
+                        android:src="@drawable/ellipse"
+                        app:civ_border_color="@color/black"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:id="@+id/tv_one_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:fontFamily="@font/noto_serif"
+                        android:text="Ruslan Joldasbaev"
+                        android:textColor="#353E81"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@id/profile_image_two"
+                        app:layout_constraintTop_toTopOf="@id/profile_image_two" />
+
+
+                    <TextView
+                        android:id="@+id/tv_two_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:fontFamily="@font/noto_serif"
+                        android:text="English"
+                        android:textColor="#353E81"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@id/profile_image_two"
+                        app:layout_constraintTop_toBottomOf="@id/tv_one_2" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:fontFamily="@font/noto_serif"
+                        android:text="24 January 20:00"
+                        android:textColor="#353E81"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_inner_three"
+                android:layout_width="342dp"
                 android:layout_height="wrap_content"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_nine"
-                tools:itemCount="2"
-                tools:listitem="@layout/item_top_leaders" />
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:backgroundTint="#ECEAEA"
+                android:minHeight="60dp"
+                app:cardCornerRadius="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/card_inner_two">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="#ECEAEA">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/profile_image_three"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:layout_marginVertical="4dp"
+                        android:layout_marginStart="14dp"
+                        android:elevation="2dp"
+                        android:src="@drawable/ellipse"
+                        app:civ_border_color="@color/black"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:id="@+id/tv_one_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:fontFamily="@font/noto_serif"
+                        android:text="Asadbek Qogambaev"
+                        android:textColor="#353E81"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@id/profile_image_three"
+                        app:layout_constraintTop_toTopOf="@id/profile_image_three" />
+
+
+                    <TextView
+                        android:id="@+id/tv_two_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:fontFamily="@font/noto_serif"
+                        android:text="Mother tongue"
+                        android:textColor="#353E81"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@id/profile_image_three"
+                        app:layout_constraintTop_toBottomOf="@id/tv_one_3" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:fontFamily="@font/noto_serif"
+                        android:text="24 January 20:00"
+                        android:textColor="#353E81"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_inner_four"
+                android:layout_width="342dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:backgroundTint="#ECEAEA"
+                android:minHeight="60dp"
+                app:cardCornerRadius="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/card_inner_three">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="#ECEAEA">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/profile_image_four"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:layout_marginVertical="4dp"
+                        android:layout_marginStart="14dp"
+                        android:elevation="2dp"
+                        android:src="@drawable/ellipse"
+                        app:civ_border_color="@color/black"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:id="@+id/tv_one_4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:fontFamily="@font/noto_serif"
+                        android:text="Nawrizbay Baltabaev"
+                        android:textColor="#353E81"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@id/profile_image_four"
+                        app:layout_constraintTop_toTopOf="@id/profile_image_four" />
+
+
+                    <TextView
+                        android:id="@+id/tv_two_4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:fontFamily="@font/noto_serif"
+                        android:text="Fizika"
+                        android:textColor="#353E81"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@id/profile_image_four"
+                        app:layout_constraintTop_toBottomOf="@id/tv_one_4" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:fontFamily="@font/noto_serif"
+                        android:text="24 January 20:00"
+                        android:textColor="#353E81"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_inner_five"
+                android:layout_width="342dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:backgroundTint="#ECEAEA"
+                android:minHeight="60dp"
+                app:cardCornerRadius="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/card_inner_four">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="#ECEAEA">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/profile_image_five"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:layout_marginVertical="4dp"
+                        android:layout_marginStart="14dp"
+                        android:elevation="2dp"
+                        android:src="@drawable/ellipse"
+                        app:civ_border_color="@color/black"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:id="@+id/tv_one_5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:fontFamily="@font/noto_serif"
+                        android:text="Damir Dilmuratov"
+                        android:textColor="#353E81"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@id/profile_image_five"
+                        app:layout_constraintTop_toTopOf="@id/profile_image_five" />
+
+
+                    <TextView
+                        android:id="@+id/tv_two_5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:fontFamily="@font/noto_serif"
+                        android:text="Biologiya"
+                        android:textColor="#353E81"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@id/profile_image_five"
+                        app:layout_constraintTop_toBottomOf="@id/tv_one_5" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:fontFamily="@font/noto_serif"
+                        android:text="24 January 20:00"
+                        android:textColor="#353E81"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
@@ -135,10 +458,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:orientation="horizontal"
-        android:paddingVertical="8dp"
-        android:paddingHorizontal="12dp"
         android:elevation="5dp"
+        android:orientation="horizontal"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="8dp"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.AppCompatImageView

@@ -10,4 +10,11 @@ class LocalStorage(preference: SharedPreferences) {
 
     var isLogin by BooleanPreference(preference, false)
 
+    var login by StringPreference(preference)
+
+    var fullName by StringPreference(preference)
+
+    var translationName by StringPreference(preference)
+
+    var channelName by StringPreference(preference)
 }

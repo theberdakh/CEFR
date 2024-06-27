@@ -22,7 +22,6 @@ class SignInFragment : Fragment(R.layout.fragment_sign_in) {
 
     private lateinit var binding: FragmentSignInBinding
 
-    private val viewModel by viewModel<LoginViewModel>()
     private val localStorage: LocalStorage by inject()
     private lateinit var mainActivity: MainActivity
 
@@ -32,7 +31,6 @@ class SignInFragment : Fragment(R.layout.fragment_sign_in) {
         binding = FragmentSignInBinding.bind(view)
         initVariables()
         setupListeners()
-        initObservers()
 
     }
 
@@ -53,34 +51,69 @@ class SignInFragment : Fragment(R.layout.fragment_sign_in) {
                 val email = etEmail.text.toString()
                 val password = etPassword.text.toString()
 
-
                 if (email.isNotEmpty() && password.isNotEmpty()) {
-                    viewModel.login(
-                        LoginRequestData(
-                            email, password
-                        )
+                    if (email == "teacher1" && password == "12345678") {
+                        localStorage.login = "teacher1"
+                        localStorage.fullName = "Amir Baymuratov"
+                        localStorage.isLogin = true
+                        // Amir
+                        localStorage.translationName = "live_509012821_J6GzFWy6vraGlObtJC0XHI7QbLh43v"
+                        localStorage.channelName = "amir_b1"
+                    } else if (email == "teacher2" && password == "12345678") {
+                        localStorage.login = "teacher2"
+                        localStorage.fullName = "Ruslan Joldasbaev"
+                        localStorage.isLogin = true
+                        // user_nukus
+                        localStorage.translationName = "live_1103815460_Je3dwgeuSYh27Ne85T9IgIHWvTuoQJ"
+                        localStorage.channelName = "user_nukus"
+                    } else if (email == "teacher3" && password == "12345678") {
+                        localStorage.login = "teacher3"
+                        localStorage.fullName = "Asadbek Qogambaev"
+                        localStorage.isLogin = true
+                        // user_xojeli
+                        localStorage.translationName = "live_1103829928_ET0hwqJ8vC4vqf7rG7VNW2Xrj9NNy6"
+                        localStorage.channelName = "user_xojeli"
+                    } else if (email == "teacher4" && password == "12345678") {
+                        localStorage.login = "teacher4"
+                        localStorage.fullName = "Nawrizbay Baltabaev"
+                        localStorage.isLogin = true
+                        // user_shomanay
+                        localStorage.translationName = "live_1103831671_EN0Ej9jg4taRKWDhTt1nTQeXBZuIkq"
+                        localStorage.channelName = "user_shomanay"
+                    } else if (email == "teacher5" && password == "12345678") {
+                        localStorage.login = "teacher5"
+                        localStorage.fullName = "Damir Dilmuratov"
+                        localStorage.isLogin = true
+                        // user_kegeyli
+                        localStorage.translationName = "live_1103834869_DRdaYLWC790kGLxX7bB02gO8Odw0LQ"
+                        localStorage.channelName = "user_kegeyli"
+                    } else if (email == "student1" && password == "12345678") {
+                        localStorage.login = "student1"
+                        localStorage.fullName = "Ruslan Joldasbaev"
+                        localStorage.isLogin = true
+                    } else if (email == "student2" && password == "12345678") {
+                        localStorage.login = "student2"
+                        localStorage.fullName = "Ruslan Joldasbaev"
+                        localStorage.isLogin = true
+                    } else if (email == "student3" && password == "12345678") {
+                        localStorage.login = "student3"
+                        localStorage.fullName = "Ruslan Joldasbaev"
+                        localStorage.isLogin = true
+                    } else if (email == "student4" && password == "12345678") {
+                        localStorage.login = "student4"
+                        localStorage.fullName = "Ruslan Joldasbaev"
+                        localStorage.isLogin = true
+                    } else if (email == "student5" && password == "12345678") {
+                        localStorage.login = "student5"
+                        localStorage.fullName = "Ruslan Joldasbaev"
+                        localStorage.isLogin = true
+                    }
+                    findNavController().navigate(
+                        SignInFragmentDirections.actionSignInFragmentToMainFragment()
                     )
-                } else {
-                    toastMessage("Email yaki parol qáte")
                 }
-
             }
         }
-    }
-
-    private fun initObservers() {
-        viewModel.loginResult.onEach { result ->
-            result.onSuccess {
-                localStorage.isLogin = true
-                localStorage.token = it.token
-                findNavController().navigate(SignInFragmentDirections.actionSignInFragmentToMainFragment())
-            }
-
-            result.onFailure {
-                snackBar(it.localizedMessage)
-            }
-
-        }.launchIn(viewLifecycleOwner.lifecycleScope)
     }
 
     override fun onDestroy() {

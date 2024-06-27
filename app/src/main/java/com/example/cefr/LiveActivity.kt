@@ -18,21 +18,23 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import com.example.cefr.databinding.ActivityLiveBinding
+import com.example.cefr.utils.LocalStorage
 import com.example.cefr.utils.PathUtils
 import com.pedro.encoder.input.video.CameraHelper
 import com.pedro.encoder.input.video.CameraOpenException
 import com.pedro.rtmp.utils.ConnectCheckerRtmp
 import com.pedro.rtplibrary.rtmp.RtmpCamera1
+import org.koin.android.ext.android.inject
 import java.io.File
 
 class LiveActivity : AppCompatActivity(), ConnectCheckerRtmp,
     SurfaceHolder.Callback, View.OnTouchListener {
+    private val localStorage: LocalStorage by inject()
 
-//    private var streamKey: String? = "ztyc-p893-jatc-6y0t-fs1b" Damir youtube
-//    private var rtmpip: String? = "rtmp://a.rtmp.youtube.com/live2/"
     private var rtmpip: String? = "rtmp://arn04.contribute.live-video.net/app/"
-    private var streamKey: String? = "live_509012821_J6GzFWy6vraGlObtJC0XHI7QbLh43v" //Amir twitch
-//    private var streamKey: String? = "live_1066953762_f77bVwCLe4D4wIRukmsjlZJZwtjvfS"//Damir
+    private var streamKey: String? = localStorage.translationName
+
+    //    private var streamKey: String? = "live_1066953762_f77bVwCLe4D4wIRukmsjlZJZwtjvfS"//Damir
     private lateinit var rtmpCamera1: RtmpCamera1
 
     private var user: String = ""
