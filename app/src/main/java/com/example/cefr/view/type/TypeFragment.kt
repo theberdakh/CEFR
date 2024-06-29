@@ -95,7 +95,7 @@ class TypeFragment : Fragment(R.layout.fragment_type) {
 
     override fun onDestroy() {
         super.onDestroy()
-        mainActivity.settingsBottomNavigation(true)
-        mainActivity.settingsBottomNavigationStudent(true)
+        mainActivity.settingsBottomNavigation(false)
+        mainActivity.settingsBottomNavigationStudent(false)
     }
 }

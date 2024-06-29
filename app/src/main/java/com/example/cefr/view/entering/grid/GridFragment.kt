@@ -80,5 +80,10 @@ class GridFragment : Fragment(R.layout.fragment_grid) {
             }
         }
     }
+    override fun onDestroy() {
+        super.onDestroy()
+        mainActivity.settingsBottomNavigation(false)
+        mainActivity.settingsBottomNavigationStudent(false)
+    }
 }
 
