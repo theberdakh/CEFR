@@ -2,16 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/mainFragment"
-        android:icon="@drawable/selector_home"
+        android:id="@+id/studentMainFragment"
+        android:icon="@drawable/gistogram"
         android:title="Main" />
 
     <item
-        android:id="@+id/liveActivity"
+        android:id="@+id/homeActivity"
         android:title="" />
 
     <item
-        android:id="@+id/profileFragment"
+        android:id="@+id/studentProfileFragment"
         android:icon="@drawable/selector_profile"
         android:title="Profile" />
 

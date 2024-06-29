@@ -27,11 +27,11 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
         binding = FragmentMainBinding.bind(view)
         initVariables()
-
     }
 
     private fun initVariables() {
         mainActivity = requireActivity() as MainActivity
+        mainActivity.settingsBottomNavigationStudent(false)
         mainActivity.settingsBottomNavigation(true)
         vpAdapter = ViewPagerAdapter()
         rvAdapter = RVAdapter()

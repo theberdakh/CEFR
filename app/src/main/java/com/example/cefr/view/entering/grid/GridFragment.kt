@@ -30,6 +30,7 @@ class GridFragment : Fragment(R.layout.fragment_grid) {
     private fun initVariables() {
         mainActivity = requireActivity() as MainActivity
         mainActivity.settingsBottomNavigation(false)
+        mainActivity.settingsBottomNavigationStudent(false)
         binding.viewPager.adapter = gridViewPagerAdapter
     }
 
@@ -78,11 +79,6 @@ class GridFragment : Fragment(R.layout.fragment_grid) {
                 binding.dot3.setImageResource(R.color.brand_color_second)
             }
         }
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        mainActivity.settingsBottomNavigation(true)
     }
 }
 

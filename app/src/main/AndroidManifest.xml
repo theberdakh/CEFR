@@ -30,6 +30,9 @@
             android:name=".LiveActivity"
             android:exported="false" />
         <activity
+            android:name=".HomeActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.Fab_Bottom_app_bar">

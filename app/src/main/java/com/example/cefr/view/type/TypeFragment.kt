@@ -7,14 +7,17 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.cefr.R
 import com.example.cefr.databinding.FragmentTypeBinding
+import com.example.cefr.utils.LocalStorage
 import com.example.cefr.utils.getColor
 import com.example.cefr.view.MainActivity
+import org.koin.android.ext.android.inject
 
 class TypeFragment : Fragment(R.layout.fragment_type) {
     private lateinit var binding: FragmentTypeBinding
     private var count = 1
     private var lastSelectedItem = -1
     private lateinit var mainActivity: MainActivity
+    private val localStorage: LocalStorage by inject()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -81,15 +84,18 @@ class TypeFragment : Fragment(R.layout.fragment_type) {
             binding.ivAdd.setImageResource(R.drawable.professor_amico)
             binding.tvAddOne.setText(R.string.teacher)
             binding.tvAddTwo.setText(R.string.teacher_desc)
+            localStorage.type = "Teacher"
         } else {
             binding.ivAdd.setImageResource(R.drawable.dictionary_amico)
             binding.tvAddOne.setText(R.string.student)
             binding.tvAddTwo.setText(R.string.student_desc)
+            localStorage.type = "Student"
         }
     }
 
     override fun onDestroy() {
         super.onDestroy()
         mainActivity.settingsBottomNavigation(true)
+        mainActivity.settingsBottomNavigationStudent(true)
     }
 }

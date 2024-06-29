@@ -49,6 +49,9 @@
         <action
             android:id="@+id/action_signInFragment_to_forgotPasswordFragment"
             app:destination="@id/forgotPasswordFragment" />
+        <action
+            android:id="@+id/action_signInFragment_to_studentMainFragment"
+            app:destination="@id/studentMainFragment" />
     </fragment>
     <fragment
         android:id="@+id/forgotPasswordFragment"
@@ -66,6 +69,9 @@
         <action
             android:id="@+id/action_splashFragment_to_gridFragment"
             app:destination="@id/gridFragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_studentMainFragment"
+            app:destination="@id/studentMainFragment" />
     </fragment>
     <activity
         android:id="@+id/liveActivity"
@@ -82,5 +88,89 @@
         <argument
             android:name="channelName"
             app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/studentMainFragment"
+        android:name="com.example.cefr.view.StudentMainFragment"
+        android:label="StudentMainFragment"
+        tools:layout="@layout/fragment_main_student">
+        <action
+            android:id="@+id/action_studentMainFragment_to_grammarFragment"
+            app:destination="@id/grammarFragment" />
+        <action
+            android:id="@+id/action_studentMainFragment_to_readingFragment"
+            app:destination="@id/readingFragment" />
+        <action
+            android:id="@+id/action_studentMainFragment_to_listeningFragment"
+            app:destination="@id/listeningFragment" />
+        <action
+            android:id="@+id/action_studentMainFragment_to_speakingFragment"
+            app:destination="@id/speakingFragment" />
+        <action
+            android:id="@+id/action_studentMainFragment_to_writingFragment"
+            app:destination="@id/writingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/studentProfileFragment"
+        android:name="com.example.cefr.view.StudentProfileFragment"
+        android:label="StudentProfileFragment"
+        tools:layout="@layout/fragment_profile_student" />
+    <activity
+        android:id="@+id/homeActivity"
+        android:name="com.example.cefr.HomeActivity"
+        android:label="activity_home"
+        tools:layout="@layout/activity_home" />
+    <fragment
+        android:id="@+id/testFragment"
+        android:name="com.example.cefr.TestFragment"
+        android:label="TestFragment"
+        tools:layout="@layout/fragment_test" />
+    <fragment
+        android:id="@+id/grammarFragment"
+        android:name="com.example.cefr.GrammarFragment"
+        android:label="GrammarFragment" >
+
+        <argument
+            android:name="title"
+            app:argType="string"/>
+        <action
+            android:id="@+id/action_grammarFragment_to_testFragment"
+            app:destination="@id/testFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/readingFragment"
+        android:name="com.example.cefr.ReadingFragment"
+        android:label="ReadingFragment" >
+
+        <argument
+            android:name="title"
+            app:argType="string"/>
+    </fragment>
+    <fragment
+        android:id="@+id/listeningFragment"
+        android:name="com.example.cefr.ListeningFragment"
+        android:label="ListeningFragment" >
+
+        <argument
+            android:name="title"
+            app:argType="string"/>
+    </fragment>
+    <fragment
+        android:id="@+id/speakingFragment"
+        android:name="com.example.cefr.SpeakingFragment"
+        android:label="SpeakingFragment" >
+
+        <argument
+            android:name="title"
+            app:argType="string"/>
+    </fragment>
+    <fragment
+        android:id="@+id/writingFragment"
+        android:name="com.example.cefr.WritingFragment"
+        android:label="WritingFragment" >
+
+        <argument
+            android:name="title"
+            app:argType="string"/>
     </fragment>
 </navigation>

@@ -53,8 +53,42 @@
             android:backgroundTint="#353E81"
             android:contentDescription="@string/app_name"
             android:src="@drawable/ic_add"
+            android:visibility="visible"
             app:layout_anchor="@id/bottomAppBar"
             app:tint="@color/white" />
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bottomAppBar_student"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:gravity="bottom"
+            app:fabCradleMargin="10dp"
+            app:fabCradleRoundedCornerRadius="10dp"
+            app:fabCradleVerticalOffset="10dp">
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottomNavigationView_student"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="16dp"
+                android:background="@color/white"
+                app:itemIconTint="#353E81"
+                app:itemRippleColor="#353E81"
+                app:itemTextColor="#353E81"
+                app:menu="@menu/bottom_nav_menu_student" />
+
+        </com.google.android.material.bottomappbar.BottomAppBar>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_student"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#353E81"
+            android:visibility="visible"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/home"
+            app:layout_anchor="@id/bottomAppBar_student"
+            app:tint="@color/white" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

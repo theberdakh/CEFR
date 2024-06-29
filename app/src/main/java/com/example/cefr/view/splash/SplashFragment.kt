@@ -33,25 +33,37 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
     private fun initVariables() {
         mainActivity = requireActivity() as MainActivity
         mainActivity.settingsBottomNavigation(false)
+        mainActivity.settingsBottomNavigationStudent(false)
     }
 
     private fun setupData() {
         binding.infoLogo.playAnimation()
         Handler().postDelayed({
-            if (localStorage.isLogin) {
-                findNavController().navigate(
-                    SplashFragmentDirections.actionSplashFragmentToMainFragment()
-                )
+            if (localStorage.type == "Teacher") {
+                if (localStorage.isLogin) {
+                    findNavController().navigate(
+                        SplashFragmentDirections.actionSplashFragmentToMainFragment()
+                    )
+                } else {
+                    findNavController().navigate(
+                        SplashFragmentDirections.actionSplashFragmentToGridFragment()
+                    )
+                }
+            } else if (localStorage.type == "Student") {
+                if (localStorage.isLogin) {
+                    findNavController().navigate(
+                        SplashFragmentDirections.actionSplashFragmentToStudentMainFragment()
+                    )
+                } else {
+                    findNavController().navigate(
+                        SplashFragmentDirections.actionSplashFragmentToGridFragment()
+                    )
+                }
             } else {
                 findNavController().navigate(
                     SplashFragmentDirections.actionSplashFragmentToGridFragment()
                 )
             }
         }, 2600)
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        mainActivity.settingsBottomNavigation(true)
     }
 }

@@ -17,4 +17,6 @@ class LocalStorage(preference: SharedPreferences) {
     var translationName by StringPreference(preference)
 
     var channelName by StringPreference(preference)
+
+    var type by StringPreference(preference)
 }
