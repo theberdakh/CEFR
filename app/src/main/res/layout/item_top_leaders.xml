@@ -5,10 +5,11 @@
 
     <androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/card_inner_three"
-        android:layout_width="342dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_margin="10dp"
+        android:layout_marginHorizontal="22dp"
+        android:layout_marginVertical="8dp"
         android:backgroundTint="#ECEAEA"
         android:minHeight="60dp"
         app:cardCornerRadius="16dp"
@@ -49,7 +50,7 @@
 
 
             <TextView
-                android:id="@+id/tv_one"
+                android:id="@+id/tv_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
@@ -63,7 +64,7 @@
 
 
             <TextView
-                android:id="@+id/tv_two"
+                android:id="@+id/tv_science"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
@@ -73,11 +74,11 @@
                 android:textSize="10sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@id/profile_image"
-                app:layout_constraintTop_toBottomOf="@id/tv_one" />
+                app:layout_constraintTop_toBottomOf="@id/tv_name" />
 
 
             <TextView
-                android:id="@+id/tv_three"
+                android:id="@+id/tv_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"

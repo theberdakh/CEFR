@@ -15,4 +15,6 @@
     <color name="red">#E82626</color>
     <color name="o70_333333">#B3333333</color>
     <color name="o70_EFEFEF">#B3EFEFEF</color>
+    <color name="back_tabs_color">#DCDAD7</color>
+    <color name="back_select_color">#353E81</color>
 </resources>

@@ -173,4 +173,9 @@
             android:name="title"
             app:argType="string"/>
     </fragment>
+    <fragment
+        android:id="@+id/ratingStudentFragment"
+        android:name="com.example.cefr.fragments.student.rating.RatingStudentFragment"
+        android:label="RatingStudentFragment"
+        tools:layout="@layout/fragment_rating_student"/>
 </navigation>
