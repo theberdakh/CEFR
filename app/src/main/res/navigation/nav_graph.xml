@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.cefr.view.main.MainFragment"
+        android:name="com.example.cefr.fragments.main.MainFragment"
         android:label="MainFragment"
         tools:layout="@layout/fragment_main">
         <action
@@ -16,13 +16,13 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.cefr.view.profile.ProfileFragment"
+        android:name="com.example.cefr.fragments.teacher.profile.TeacherProfileFragment"
         android:label="ProfileFragment"
         tools:layout="@layout/fragment_profile" />
 
     <fragment
         android:id="@+id/gridFragment"
-        android:name="com.example.cefr.view.entering.grid.GridFragment"
+        android:name="com.example.cefr.fragments.entering.grid.GridFragment"
         android:label="GridFragment"
         tools:layout="@layout/fragment_grid">
         <action
@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/typeFragment"
-        android:name="com.example.cefr.view.type.TypeFragment"
+        android:name="com.example.cefr.fragments.entering.select_user_type.TypeFragment"
         android:label="TypeFragment"
         tools:layout="@layout/fragment_type">
         <action
@@ -40,7 +40,7 @@
     </fragment>
     <fragment
         android:id="@+id/signInFragment"
-        android:name="com.example.cefr.view.entering.sign_in.SignInFragment"
+        android:name="com.example.cefr.fragments.entering.sign_in.SignInFragment"
         android:label="SignInFragment"
         tools:layout="@layout/fragment_sign_in">
         <action
@@ -55,12 +55,12 @@
     </fragment>
     <fragment
         android:id="@+id/forgotPasswordFragment"
-        android:name="com.example.cefr.view.entering.forgot.ForgotPasswordFragment"
+        android:name="com.example.cefr.fragments.entering.forgot.ForgotPasswordFragment"
         android:label="ForgotPasswordFragment"
         tools:layout="@layout/fragment_forgot_password" />
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.example.cefr.view.splash.SplashFragment"
+        android:name="com.example.cefr.fragments.teacher.splash.SplashFragment"
         android:label="SplashFragment"
         tools:layout="@layout/fragment_splash">
         <action
@@ -91,7 +91,7 @@
     </fragment>
     <fragment
         android:id="@+id/studentMainFragment"
-        android:name="com.example.cefr.view.StudentMainFragment"
+        android:name="com.example.cefr.fragments.StudentMainFragment"
         android:label="StudentMainFragment"
         tools:layout="@layout/fragment_main_student">
         <action
@@ -112,7 +112,7 @@
     </fragment>
     <fragment
         android:id="@+id/studentProfileFragment"
-        android:name="com.example.cefr.view.StudentProfileFragment"
+        android:name="com.example.cefr.fragments.student.profile.StudentProfileFragment"
         android:label="StudentProfileFragment"
         tools:layout="@layout/fragment_profile_student" />
     <activity
@@ -122,12 +122,12 @@
         tools:layout="@layout/activity_home" />
     <fragment
         android:id="@+id/testFragment"
-        android:name="com.example.cefr.TestFragment"
+        android:name="com.example.cefr.fragments.student.quiz.TestFragment"
         android:label="TestFragment"
         tools:layout="@layout/fragment_test" />
     <fragment
         android:id="@+id/grammarFragment"
-        android:name="com.example.cefr.GrammarFragment"
+        android:name="com.example.cefr.fragments.student.grammar.GrammarFragment"
         android:label="GrammarFragment" >
 
         <argument
@@ -139,7 +139,7 @@
     </fragment>
     <fragment
         android:id="@+id/readingFragment"
-        android:name="com.example.cefr.ReadingFragment"
+        android:name="com.example.cefr.fragments.student.reading.ReadingFragment"
         android:label="ReadingFragment" >
 
         <argument
@@ -148,7 +148,7 @@
     </fragment>
     <fragment
         android:id="@+id/listeningFragment"
-        android:name="com.example.cefr.ListeningFragment"
+        android:name="com.example.cefr.fragments.student.listening.ListeningFragment"
         android:label="ListeningFragment" >
 
         <argument
@@ -157,7 +157,7 @@
     </fragment>
     <fragment
         android:id="@+id/speakingFragment"
-        android:name="com.example.cefr.SpeakingFragment"
+        android:name="com.example.cefr.fragments.student.speaking.SpeakingFragment"
         android:label="SpeakingFragment" >
 
         <argument
@@ -166,7 +166,7 @@
     </fragment>
     <fragment
         android:id="@+id/writingFragment"
-        android:name="com.example.cefr.WritingFragment"
+        android:name="com.example.cefr.fragments.student.writing.WritingFragment"
         android:label="WritingFragment" >
 
         <argument

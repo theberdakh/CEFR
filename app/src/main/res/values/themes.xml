@@ -2,7 +2,8 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.CEFR" parent="Theme.Material3.Light.NoActionBar">
         <!-- Customize your light theme here. -->
-        <item name="colorPrimary">#FFEB3B</item>
+        <item name="colorPrimary">#353E81</item>
+        <item name="colorPrimaryDark">@color/white</item>
     </style>
 
     <style name="Theme.CEFR" parent="Base.Theme.CEFR" />

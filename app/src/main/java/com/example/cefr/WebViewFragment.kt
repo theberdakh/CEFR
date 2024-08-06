@@ -10,7 +10,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.example.cefr.databinding.FragmentWebviewBinding
-import com.example.cefr.view.MainActivity
+import com.example.cefr.fragments.MainActivity
 
 class WebViewFragment : Fragment(R.layout.fragment_webview) {
 
