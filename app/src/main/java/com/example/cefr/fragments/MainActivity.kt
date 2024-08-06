@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        //Test 2
+        //Test 3
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
