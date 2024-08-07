@@ -7,12 +7,13 @@ import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.imax.cefr.R
 import com.imax.cefr.MainActivity
+import com.imax.cefr.core.base.fragment.replaceFragment
 import com.imax.cefr.data.models.OnBoardingData
 import com.imax.cefr.databinding.FragmentOnboardingBinding
+import com.imax.cefr.fragments.entering.login.LoginFragment
 
 class OnBoardingFragment : Fragment(R.layout.fragment_onboarding) {
     private lateinit var binding: FragmentOnboardingBinding
-    private lateinit var mainActivity: MainActivity
     private val onBoardingViewPagerAdapter = OnBoardingViewPagerAdapter()
     private var currentId = 0
 
@@ -47,9 +48,9 @@ class OnBoardingFragment : Fragment(R.layout.fragment_onboarding) {
     }
 
     private fun initVariables() {
-        mainActivity = requireActivity() as MainActivity
+ /*       mainActivity = requireActivity() as MainActivity
         mainActivity.settingsBottomNavigation(false)
-        mainActivity.settingsBottomNavigationStudent(false)
+        mainActivity.settingsBottomNavigationStudent(false)*/
         binding.viewPager.adapter = onBoardingViewPagerAdapter
     }
 
@@ -68,7 +69,7 @@ class OnBoardingFragment : Fragment(R.layout.fragment_onboarding) {
             if (currentId != 2) {
                 binding.viewPager.setCurrentItem(++currentId, true)
             } else {
-                findNavController().navigate(R.id.action_gridFragment_to_typeFragment)
+                parentFragmentManager.replaceFragment(R.id.activity_container_view, LoginFragment())
             }
         }
 
@@ -97,8 +98,8 @@ class OnBoardingFragment : Fragment(R.layout.fragment_onboarding) {
     }
     override fun onDestroy() {
         super.onDestroy()
-        mainActivity.settingsBottomNavigation(false)
-        mainActivity.settingsBottomNavigationStudent(false)
+       /* mainActivity.settingsBottomNavigation(false)
+        mainActivity.settingsBottomNavigationStudent(false)*/
     }
 }
 

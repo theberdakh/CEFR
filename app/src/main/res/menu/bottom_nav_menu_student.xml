@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/studentMainFragment"
+        android:id="@+id/item_menu_student_rating"
         android:icon="@drawable/gistogram"
         android:title="Main" />
 
@@ -11,7 +11,7 @@
         android:title="" />
 
     <item
-        android:id="@+id/studentProfileFragment"
+        android:id="@+id/item_menu_student_profile"
         android:icon="@drawable/selector_profile"
         android:title="Profile" />
 

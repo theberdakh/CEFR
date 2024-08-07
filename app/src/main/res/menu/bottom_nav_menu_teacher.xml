@@ -2,16 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/mainFragment"
+        android:id="@+id/item_teacher_home_fragment"
         android:icon="@drawable/selector_home"
         android:title="Main" />
 
+    <!--This item is just to create space-->
     <item
-        android:id="@+id/liveActivity"
-        android:title="" />
+        android:id="@+id/item_teacher_start_stream_place"
+        android:title=""/>
 
     <item
-        android:id="@+id/profileFragment"
+        android:id="@+id/item_teacher_profile_fragment"
         android:icon="@drawable/selector_profile"
         android:title="Profile" />
 

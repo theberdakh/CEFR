@@ -33,7 +33,7 @@ class LiveStreamActivity :
 
     private val localStorage: LocalStorage by inject()
     private var rtmpip: String? = "rtmp://arn04.contribute.live-video.net/app/"
-    private var streamKey: String? = localStorage.translationName
+    private var streamKey: String? = localStorage.streamKey
 
     //    private var streamKey: String? = "live_1066953762_f77bVwCLe4D4wIRukmsjlZJZwtjvfS"//Damir
     private lateinit var rtmpCamera1: RtmpCamera1
@@ -420,5 +420,9 @@ class LiveStreamActivity :
         visibleTime = "$hourVal:$minuteVal:$secondVal"
 
         return "$hourVal:$minuteVal:$secondVal"
+    }
+
+    companion object {
+        const val REQUEST_CODE = 1
     }
 }

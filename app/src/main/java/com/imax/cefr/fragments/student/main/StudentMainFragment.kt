@@ -1,65 +1,56 @@
 package com.imax.cefr.fragments.student.main
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import com.imax.cefr.MainActivity
 import com.imax.cefr.R
-import com.imax.cefr.databinding.FragmentMainStudentBinding
-import com.imax.cefr.core.base.pref.LocalStorage
-import org.koin.android.ext.android.inject
+import com.imax.cefr.core.base.fragment.replaceFragment
+import com.imax.cefr.databinding.FragmentStudentMainBinding
+import com.imax.cefr.fragments.student.home.StudentHomeFragment
+import com.imax.cefr.fragments.student.profile.StudentProfileFragment
 
-class StudentMainFragment : Fragment(R.layout.fragment_main_student) {
+class StudentMainFragment: Fragment() {
 
-    private lateinit var binding: FragmentMainStudentBinding
-    private lateinit var mainActivity: MainActivity
-    private val localStorage: LocalStorage by inject()
+    private lateinit var binding: FragmentStudentMainBinding
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding = FragmentStudentMainBinding.inflate(inflater, container, false)
+        childFragmentManager.replaceFragment(R.id.fragment_student_main_container, StudentHomeFragment())
+
+        return binding.root
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        binding = FragmentMainStudentBinding.bind(view)
-
-        initVariables()
-        setupListeners()
-    }
-
-    private fun initVariables() {
-        mainActivity = requireActivity() as MainActivity
-        mainActivity.settingsBottomNavigation(false)
-        mainActivity.settingsBottomNavigationStudent(true)
-    }
-
-    private fun setupListeners() {
-        binding.btnGrammar.setOnClickListener {
-            findNavController().navigate(
-                StudentMainFragmentDirections.actionStudentMainFragmentToGrammarFragment("Grammar")
+        binding.fabStudentMain.setOnClickListener {
+            childFragmentManager.replaceFragment(
+                R.id.fragment_student_main_container,
+                StudentHomeFragment()
             )
+            binding.toolbar.title = "Main"
         }
-
-        binding.btnReading.setOnClickListener {
-            findNavController().navigate(
-                StudentMainFragmentDirections.actionStudentMainFragmentToReadingFragment("Reading")
-            )
-        }
-
-        binding.btnListening.setOnClickListener {
-            findNavController().navigate(
-                StudentMainFragmentDirections.actionStudentMainFragmentToListeningFragment("Listening")
-            )
-        }
-
-        binding.btnWriting.setOnClickListener {
-            findNavController().navigate(
-                StudentMainFragmentDirections.actionStudentMainFragmentToWritingFragment("Writing")
-            )
-        }
-
-        binding.btnSpeaking.setOnClickListener {
-            findNavController().navigate(
-                StudentMainFragmentDirections.actionStudentMainFragmentToSpeakingFragment("Speaking")
-            )
+        binding.bottomNavStudentMain.setOnItemSelectedListener { menuItem ->
+            when(menuItem.itemId){
+                R.id.item_menu_student_rating -> {
+                    binding.toolbar.title = "Rating"
+                    //Replace to StudentRatingFragment()
+                }
+                R.id.item_menu_student_profile -> {
+                    childFragmentManager.replaceFragment(
+                        R.id.fragment_student_main_container,
+                        StudentProfileFragment()
+                    )
+                    binding.toolbar.title = "Profile"
+                }
+                else -> UnknownError("Fragment not found for menu item: ${menuItem.title}")
+            }
+            true
         }
     }
 }

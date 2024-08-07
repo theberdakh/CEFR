@@ -1,4 +1,4 @@
-package com.imax.cefr.fragments.entering.select_user_type
+package com.imax.cefr.fragments.entering.select
 
 import android.os.Bundle
 import android.view.View
@@ -6,32 +6,27 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.imax.cefr.R
-import com.imax.cefr.databinding.FragmentTypeBinding
+import com.imax.cefr.core.base.fragment.addFragment
 import com.imax.cefr.core.base.pref.LocalStorage
+import com.imax.cefr.databinding.FragmentSelectBinding
+import com.imax.cefr.fragments.entering.login.LoginFragment
 import com.imax.cefr.utils.getColor
-import com.imax.cefr.MainActivity
 import org.koin.android.ext.android.inject
 
-class SelectUserTypeFragment : Fragment(R.layout.fragment_type) {
-    private lateinit var binding: FragmentTypeBinding
+class SelectFragment : Fragment(R.layout.fragment_select) {
+    private lateinit var binding: FragmentSelectBinding
     private var count = 1
     private var lastSelectedItem = -1
-    private lateinit var mainActivity: MainActivity
     private val localStorage: LocalStorage by inject()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding = FragmentTypeBinding.bind(view)
-        initVariables()
+        binding = FragmentSelectBinding.bind(view)
         initListeners()
 
     }
 
-    private fun initVariables() {
-        mainActivity = requireActivity() as MainActivity
-        mainActivity.settingsBottomNavigation(false)
-    }
 
     private fun initListeners() {
         binding.btnTeacher.setActive(false)
@@ -43,7 +38,7 @@ class SelectUserTypeFragment : Fragment(R.layout.fragment_type) {
             binding.btnTeacher.setActive(true)
             binding.btnStudent.setActive(false)
             if (lastSelectedItem == 0 && count == 1) {
-                findNavController().navigate(R.id.action_typeFragment_to_signInFragment)
+                requireActivity().supportFragmentManager.addFragment(R.id.activity_container_view, LoginFragment(), "LoginFragment")
                 lastSelectedItem = -1
                 count = 0
             } else if (lastSelectedItem == 1) {
@@ -58,7 +53,7 @@ class SelectUserTypeFragment : Fragment(R.layout.fragment_type) {
             binding.btnStudent.setActive(true)
             binding.btnTeacher.setActive(false)
             if (lastSelectedItem == 1 && count == 1) {
-                findNavController().navigate(R.id.action_typeFragment_to_signInFragment)
+           //     findNavController().navigate(R.id.action_typeFragment_to_signInFragment)
                 lastSelectedItem = -1
                 count = 0
             } else if (lastSelectedItem == 0) {
@@ -93,9 +88,4 @@ class SelectUserTypeFragment : Fragment(R.layout.fragment_type) {
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        mainActivity.settingsBottomNavigation(false)
-        mainActivity.settingsBottomNavigationStudent(false)
-    }
 }

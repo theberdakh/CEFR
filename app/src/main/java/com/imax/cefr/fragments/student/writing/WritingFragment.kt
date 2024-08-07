@@ -12,32 +12,13 @@ import com.imax.cefr.MainActivity
 class WritingFragment : Fragment(R.layout.fragment_writing) {
 
     private lateinit var binding: FragmentListeningBinding
-    private val navArgs by navArgs<WritingFragmentArgs>()
-    private lateinit var mainActivity: MainActivity
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding = FragmentListeningBinding.bind(view)
-
-        binding.tvTitle.text = navArgs.title
-
-        initVariables()
-
         binding.icBack.setOnClickListener {
             findNavController().popBackStack()
         }
     }
 
-    private fun initVariables() {
-        mainActivity = requireActivity() as MainActivity
-        mainActivity.settingsBottomNavigation(false)
-        mainActivity.settingsBottomNavigationStudent(false)
-    }
-
-
-    override fun onDestroy() {
-        super.onDestroy()
-        mainActivity.settingsBottomNavigation(false)
-        mainActivity.settingsBottomNavigationStudent(true)
-    }
 }

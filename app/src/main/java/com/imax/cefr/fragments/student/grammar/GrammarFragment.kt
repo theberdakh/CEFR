@@ -11,14 +11,10 @@ import com.imax.cefr.MainActivity
 
 class GrammarFragment : Fragment(R.layout.fragment_grammar) {
     private lateinit var binding: FragmentGrammarBinding
-    private val navArgs by navArgs<GrammarFragmentArgs>()
-    private lateinit var mainActivity: MainActivity
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding = FragmentGrammarBinding.bind(view)
-
-        binding.tvTitle.text = navArgs.title
 
         initVariables()
 
@@ -27,22 +23,9 @@ class GrammarFragment : Fragment(R.layout.fragment_grammar) {
         }
 
         binding.cardOne.setOnClickListener {
-            findNavController().navigate(
-                GrammarFragmentDirections.actionGrammarFragmentToTestFragment()
-            )
         }
     }
 
-    private fun initVariables() {
-        mainActivity = requireActivity() as MainActivity
-        mainActivity.settingsBottomNavigation(false)
-        mainActivity.settingsBottomNavigationStudent(false)
-    }
+    private fun initVariables() {}
 
-
-    override fun onDestroy() {
-        super.onDestroy()
-        mainActivity.settingsBottomNavigation(false)
-        mainActivity.settingsBottomNavigationStudent(true)
-    }
 }
