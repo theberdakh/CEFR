@@ -1,7 +1,9 @@
 package com.imax.cefr.di
 
-import com.imax.cefr.data.utils.AccessTokenInterceptor
+import com.imax.cefr.BuildConfig
+import com.imax.cefr.core.base.interceptor.AccessTokenInterceptor
 import com.imax.cefr.data.api.CefrApi
+import com.imax.cefr.core.base.constants.Constants
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
@@ -24,8 +26,8 @@ val networkModule = module {
         val okHttpClient = OkHttpClient.Builder()
             .addInterceptor(httpLoggingInterceptor)
             .addInterceptor(interceptor)
-            .readTimeout(40, TimeUnit.SECONDS)
-            .writeTimeout(40, TimeUnit.SECONDS)
+            .readTimeout(Constants.NETWORK_READ_TIME_OUT, TimeUnit.SECONDS)
+            .writeTimeout(Constants.NETWORK_WRITE_TIME_OUT, TimeUnit.SECONDS)
             .build()
 
         Retrofit.Builder()

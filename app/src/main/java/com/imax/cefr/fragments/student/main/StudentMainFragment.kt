@@ -7,7 +7,7 @@ import androidx.navigation.fragment.findNavController
 import com.imax.cefr.MainActivity
 import com.imax.cefr.R
 import com.imax.cefr.databinding.FragmentMainStudentBinding
-import com.imax.cefr.data.pref.LocalStorage
+import com.imax.cefr.core.base.pref.LocalStorage
 import org.koin.android.ext.android.inject
 
 class StudentMainFragment : Fragment(R.layout.fragment_main_student) {

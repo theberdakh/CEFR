@@ -8,7 +8,7 @@ import com.imax.cefr.R
 import com.imax.cefr.fragments.teacher.adapter.LiveVideDataClassListAdapter
 import com.imax.cefr.data.models.LiveVideoDataClass
 import com.imax.cefr.databinding.FragmentMainBinding
-import com.imax.cefr.data.pref.LocalStorage
+import com.imax.cefr.core.base.pref.LocalStorage
 import com.imax.cefr.MainActivity
 import com.imax.cefr.fragments.teacher.adapter.PinnedLiveStreamsAdapter
 import org.koin.android.ext.android.inject

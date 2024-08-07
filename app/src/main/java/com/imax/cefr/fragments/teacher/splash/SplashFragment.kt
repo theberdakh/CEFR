@@ -2,12 +2,13 @@ package com.imax.cefr.fragments.teacher.splash
 
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.imax.cefr.R
 import com.imax.cefr.databinding.FragmentSplashBinding
-import com.imax.cefr.data.pref.LocalStorage
+import com.imax.cefr.core.base.pref.LocalStorage
 import com.imax.cefr.MainActivity
 import org.koin.android.ext.android.inject
 
@@ -34,31 +35,19 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
 
     private fun setupData() {
         binding.infoLogo.playAnimation()
+
         Handler().postDelayed({
-            if (localStorage.type == "Teacher") {
-                if (localStorage.isLogin) {
-                    findNavController().navigate(
-                        SplashFragmentDirections.actionSplashFragmentToMainFragment()
+            Log.d("SplashFragment", "${localStorage.isLogin}")
+            Log.d("SplashFragment", "${localStorage.type}")
+            if (localStorage.isLogin){
+                when(localStorage.type){
+                    "Teacher" -> findNavController().navigate(
+                        R.id.action_splashFragment_to_mainFragment
                     )
-                } else {
-                    findNavController().navigate(
-                        SplashFragmentDirections.actionSplashFragmentToGridFragment()
-                    )
-                }
-            } else if (localStorage.type == "Student") {
-                if (localStorage.isLogin) {
-                    findNavController().navigate(
-                        SplashFragmentDirections.actionSplashFragmentToStudentMainFragment()
-                    )
-                } else {
-                    findNavController().navigate(
-                        SplashFragmentDirections.actionSplashFragmentToGridFragment()
-                    )
+                    "Student" -> findNavController().navigate(R.id.action_splashFragment_to_studentMainFragment)
                 }
             } else {
-                findNavController().navigate(
-                    SplashFragmentDirections.actionSplashFragmentToGridFragment()
-                )
+                findNavController().navigate(R.id.action_splashFragment_to_gridFragment)
             }
         }, 2600)
     }

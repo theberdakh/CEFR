@@ -21,6 +21,9 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField "String", "BASE_URL", "\"https://aral-boyi.uz/\""
+        }
         release {
             buildConfigField "String", "BASE_URL", "\"https://aral-boyi.uz/\""
             minifyEnabled false
@@ -35,6 +38,7 @@ android {
         jvmTarget = '1.8'
     }
     buildFeatures {
+        buildConfig = true
         viewBinding = true
     }
 }

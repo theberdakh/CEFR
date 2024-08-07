@@ -1,6 +1,6 @@
-package com.imax.cefr.data.utils
+package com.imax.cefr.core.base.interceptor
 
-import com.imax.cefr.data.pref.LocalStorage
+import com.imax.cefr.core.base.pref.LocalStorage
 import okhttp3.Interceptor
 
 class AccessTokenInterceptor(private val localStorage: LocalStorage) : Interceptor {

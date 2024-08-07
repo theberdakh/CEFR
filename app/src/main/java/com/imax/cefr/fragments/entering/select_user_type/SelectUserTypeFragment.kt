@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.imax.cefr.R
 import com.imax.cefr.databinding.FragmentTypeBinding
-import com.imax.cefr.data.pref.LocalStorage
+import com.imax.cefr.core.base.pref.LocalStorage
 import com.imax.cefr.utils.getColor
 import com.imax.cefr.MainActivity
 import org.koin.android.ext.android.inject

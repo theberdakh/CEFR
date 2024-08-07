@@ -19,7 +19,7 @@ import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import com.imax.cefr.R
 import com.imax.cefr.databinding.ActivityLiveBinding
-import com.imax.cefr.data.pref.LocalStorage
+import com.imax.cefr.core.base.pref.LocalStorage
 import com.pedro.encoder.input.video.CameraHelper
 import com.pedro.encoder.input.video.CameraOpenException
 import com.pedro.rtmp.utils.ConnectCheckerRtmp

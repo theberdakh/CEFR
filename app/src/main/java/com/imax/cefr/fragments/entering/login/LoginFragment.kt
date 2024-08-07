@@ -6,138 +6,112 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.imax.cefr.data.models.LoginRequestData
 import com.imax.cefr.presentation.LoginViewModel
-import com.imax.cefr.data.pref.LocalStorage
+import com.imax.cefr.core.base.pref.LocalStorage
 import com.imax.cefr.MainActivity
 import com.imax.cefr.R
+import com.imax.cefr.core.base.fragment.BaseFragment
+import com.imax.cefr.data.models.UserType
 import com.imax.cefr.databinding.FragmentSignInBinding
 import kotlinx.coroutines.flow.onEach
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class LoginFragment : Fragment(R.layout.fragment_sign_in) {
+data class FakeUser(
+    val username: String,
+    val password: String = "12345678",
+    val fullName: String = "",
+    val twitchChannelUsername: String = "",
+    val streamToken: String = ""
+)
 
-    private lateinit var binding: FragmentSignInBinding
+class LoginFragment : BaseFragment<FragmentSignInBinding>(FragmentSignInBinding::inflate) {
 
     private val localStorage: LocalStorage by inject()
     private lateinit var mainActivity: MainActivity
     private val loginViewModel by viewModel<LoginViewModel>()
+    private val fakeUsers
+        get() = listOf(
+            FakeUser(
+                username = "teacher1",
+                fullName = "Amir Baymuratov",
+                streamToken = "live_509012821_J6GzFWy6vraGlObtJC0XHI7QbLh43v",
+                twitchChannelUsername = "amir_b1"
+            ), FakeUser(
+                username = "teacher2",
+                fullName = "Ruslan Joldasbaev",
+                streamToken = "live_1103815460_Je3dwgeuSYh27Ne85T9IgIHWvTuoQJ",
+                twitchChannelUsername = "user_nukus"
+            ), FakeUser(
+                username = "teacher3",
+                fullName = "Asadbek Qogambaev",
+                streamToken = "live_1103829928_ET0hwqJ8vC4vqf7rG7VNW2Xrj9NNy6",
+                twitchChannelUsername = "user_xojeli"
+            ), FakeUser(
+                username = "teacher4",
+                fullName = "Nawrizbay Baltabaev",
+                streamToken = "live_1103831671_EN0Ej9jg4taRKWDhTt1nTQeXBZuIkq",
+                twitchChannelUsername = "user_shomanay"
+            ), FakeUser(
+                username = "teacher5",
+                fullName = "Damir Dilmuratov",
+                streamToken = "live_1103834869_DRdaYLWC790kGLxX7bB02gO8Odw0LQ",
+                twitchChannelUsername = "user_kegeyli"
+            ), FakeUser(
+                username = "student1",
+                fullName = "Ruslan Joldasbaev"
+            )
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        )
 
-        binding = FragmentSignInBinding.bind(view)
-        initVariables()
-        setupListeners()
-        initObservers()
-
-    }
-
-    private fun initObservers() {
+    override fun FragmentSignInBinding.observeViewModel() {
         loginViewModel.loginFlow.onEach {}
     }
 
-    private fun initVariables() {
+    override fun FragmentSignInBinding.setUpViews() {
         mainActivity = requireActivity() as MainActivity
         mainActivity.settingsBottomNavigation(false)
         mainActivity.settingsBottomNavigationStudent(false)
-    }
 
+        icBack.setOnClickListener {
+            findNavController().popBackStack()
+        }
 
-    private fun setupListeners() {
+        tvForgotPassword.setOnClickListener {
+            findNavController().navigate(R.id.action_signInFragment_to_forgotPasswordFragment)
+        }
 
+        btnSignIn.setOnClickListener {
 
-        with(binding) {
-            icBack.setOnClickListener {
-                findNavController().popBackStack()
-            }
+            val email = etEmail.text.toString()
+            val password = etPassword.text.toString()
 
-            tvForgotPassword.setOnClickListener {
-                findNavController().navigate(R.id.action_signInFragment_to_forgotPasswordFragment)
-            }
+            // loginViewModel.login(LoginRequestData(email, password))
 
-            btnSignIn.setOnClickListener {
-                val email = etEmail.text.toString()
-                val password = etPassword.text.toString()
+            if (email.isNotEmpty() && password.isNotEmpty()) {
 
-                if (email.isNotEmpty() && password.isNotEmpty()) {
-                    loginViewModel.login(LoginRequestData(email, password))
-                    if (localStorage.type == "Teacher") {
-                        if (email == "teacher1" && password == "12345678") {
-                            localStorage.login = "teacher1"
-                            localStorage.fullName = "Amir Baymuratov"
-                            localStorage.isLogin = true
-                            // Amir
-                            localStorage.translationName =
-                                "live_509012821_J6GzFWy6vraGlObtJC0XHI7QbLh43v"
-                            localStorage.channelName = "amir_b1"
-                        } else if (email == "teacher2" && password == "12345678") {
-                            localStorage.login = "teacher2"
-                            localStorage.fullName = "Ruslan Joldasbaev"
-                            localStorage.isLogin = true
-                            // user_nukus
-                            localStorage.translationName =
-                                "live_1103815460_Je3dwgeuSYh27Ne85T9IgIHWvTuoQJ"
-                            localStorage.channelName = "user_nukus"
-                        } else if (email == "teacher3" && password == "12345678") {
-                            localStorage.login = "teacher3"
-                            localStorage.fullName = "Asadbek Qogambaev"
-                            localStorage.isLogin = true
-                            // user_xojeli
-                            localStorage.translationName =
-                                "live_1103829928_ET0hwqJ8vC4vqf7rG7VNW2Xrj9NNy6"
-                            localStorage.channelName = "user_xojeli"
-                        } else if (email == "teacher4" && password == "12345678") {
-                            localStorage.login = "teacher4"
-                            localStorage.fullName = "Nawrizbay Baltabaev"
-                            localStorage.isLogin = true
-                            // user_shomanay
-                            localStorage.translationName =
-                                "live_1103831671_EN0Ej9jg4taRKWDhTt1nTQeXBZuIkq"
-                            localStorage.channelName = "user_shomanay"
-                        } else if (email == "teacher5" && password == "12345678") {
-                            localStorage.login = "teacher5"
-                            localStorage.fullName = "Damir Dilmuratov"
-                            localStorage.isLogin = true
-                            // user_kegeyli
-                            localStorage.translationName =
-                                "live_1103834869_DRdaYLWC790kGLxX7bB02gO8Odw0LQ"
-                            localStorage.channelName = "user_kegeyli"
-                        } else if (email == "student1" && password == "12345678") {
-                            localStorage.login = "student1"
-                            localStorage.fullName = "Ruslan Joldasbaev"
-                            localStorage.isLogin = true
-                        } else if (email == "student2" && password == "12345678") {
-                            localStorage.login = "student2"
-                            localStorage.fullName = "Ruslan Joldasbaev"
-                            localStorage.isLogin = true
-                        } else if (email == "student3" && password == "12345678") {
-                            localStorage.login = "student3"
-                            localStorage.fullName = "Ruslan Joldasbaev"
-                            localStorage.isLogin = true
-                        } else if (email == "student4" && password == "12345678") {
-                            localStorage.login = "student4"
-                            localStorage.fullName = "Ruslan Joldasbaev"
-                            localStorage.isLogin = true
-                        } else if (email == "student5" && password == "12345678") {
-                            localStorage.login = "student5"
-                            localStorage.fullName = "Ruslan Joldasbaev"
-                            localStorage.isLogin = true
-                        }
-                        findNavController().navigate(
-                            R.id.action_signInFragment_to_mainFragment
-                        )
-                    } else if (localStorage.type == "Student") {
-                        if (email == "student1" && password == "12345678") {
-                            localStorage.login = "student1"
-                            localStorage.fullName = "Tayrov Azat"
-                            localStorage.isLogin = true
-                        }
-                        findNavController().navigate(
+                for (user in fakeUsers) {
+                    if (user.username == email && user.password == password) {
+                        localStorage.login = user.username
+                        localStorage.fullName = user.fullName
+                        localStorage.translationName = user.streamToken
+                        localStorage.channelName = user.twitchChannelUsername
+                        localStorage.isLogin = true
+
+                    }
+                    when (localStorage.type) {
+                        UserType.TEACHER.token ->
+                            findNavController().navigate(R.id.action_signInFragment_to_mainFragment)
+                        UserType.STUDENT.token -> findNavController().navigate(
                             R.id.action_signInFragment_to_studentMainFragment
                         )
+                        else -> throw UnknownError("User type is not defined")
+
                     }
                 }
             }
         }
     }
+
+    override fun FragmentSignInBinding.navigation() {}
+
 }

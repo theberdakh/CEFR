@@ -1,4 +1,4 @@
-package com.imax.cefr.data.pref
+package com.imax.cefr.core.base.pref
 
 import android.content.SharedPreferences
 import androidx.core.content.edit

@@ -6,12 +6,12 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.imax.cefr.R
-import com.imax.cefr.databinding.FragmentGridBinding
 import com.imax.cefr.MainActivity
 import com.imax.cefr.data.models.OnBoardingData
+import com.imax.cefr.databinding.FragmentOnboardingBinding
 
-class OnBoardingFragment : Fragment(R.layout.fragment_grid) {
-    private lateinit var binding: FragmentGridBinding
+class OnBoardingFragment : Fragment(R.layout.fragment_onboarding) {
+    private lateinit var binding: FragmentOnboardingBinding
     private lateinit var mainActivity: MainActivity
     private val onBoardingViewPagerAdapter = OnBoardingViewPagerAdapter()
     private var currentId = 0
@@ -39,7 +39,7 @@ class OnBoardingFragment : Fragment(R.layout.fragment_grid) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentGridBinding.bind(view)
+        binding = FragmentOnboardingBinding.bind(view)
 
         initVariables()
         initListeners()

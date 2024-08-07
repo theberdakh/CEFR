@@ -52,8 +52,7 @@ class MainActivity : AppCompatActivity() {
     private fun setBottomNavigation() {
         binding.bottomNavigationView.background = null
         binding.bottomNavigationView.menu.getItem(1).isEnabled = false
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.nav_controller) as NavHostFragment
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_controller) as NavHostFragment
         val navController = navHostFragment.navController
         binding.bottomNavigationView.setupWithNavController(navController)
 

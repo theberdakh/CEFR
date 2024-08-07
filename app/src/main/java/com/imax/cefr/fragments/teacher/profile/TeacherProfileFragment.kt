@@ -7,33 +7,32 @@ import com.imax.cefr.R
 import com.imax.cefr.fragments.teacher.adapter.LiveVideDataClassListAdapter
 import com.imax.cefr.data.models.LiveVideoDataClass
 import com.imax.cefr.databinding.FragmentProfileBinding
-import com.imax.cefr.data.pref.LocalStorage
+import com.imax.cefr.core.base.pref.LocalStorage
 import com.imax.cefr.MainActivity
+import com.imax.cefr.core.base.fragment.BaseFragment
 import com.imax.cefr.fragments.teacher.adapter.PinnedLiveStreamsAdapter
 import org.koin.android.ext.android.inject
 
-class TeacherProfileFragment : Fragment(R.layout.fragment_profile) {
+class TeacherProfileFragment :BaseFragment<FragmentProfileBinding>(FragmentProfileBinding::inflate){
 
-    private lateinit var binding: FragmentProfileBinding
-    private lateinit var vpAdapter: PinnedLiveStreamsAdapter
-    private lateinit var rvAdapter: LiveVideDataClassListAdapter
+    private val vpAdapter by lazy(LazyThreadSafetyMode.NONE) {PinnedLiveStreamsAdapter() }
+    private val rvAdapter by lazy(LazyThreadSafetyMode.NONE) { LiveVideDataClassListAdapter() }
     private val localStorage: LocalStorage by inject()
     private lateinit var mainActivity: MainActivity
+    private val list = mutableListOf<LiveVideoDataClass>()
+    private val list2 = mutableListOf<LiveVideoDataClass>()
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun FragmentProfileBinding.observeViewModel() {
+        //observe view model here
+    }
 
-        binding = FragmentProfileBinding.bind(view)
-
+    override fun FragmentProfileBinding.setUpViews() {
         mainActivity = requireActivity() as MainActivity
         mainActivity.settingsBottomNavigationStudent(false)
         mainActivity.settingsBottomNavigation(true)
 
-        vpAdapter = PinnedLiveStreamsAdapter()
-        rvAdapter = LiveVideDataClassListAdapter()
+       viewPager.adapter = vpAdapter
 
-        binding.viewPager.adapter = vpAdapter
-        val list = mutableListOf<LiveVideoDataClass>()
         repeat(10) {
             list.add(
                 LiveVideoDataClass(
@@ -43,13 +42,15 @@ class TeacherProfileFragment : Fragment(R.layout.fragment_profile) {
         }
         vpAdapter.submitList(list)
 
-        binding.tvOne.text = localStorage.fullName
-        binding.rcPrevious.adapter = rvAdapter
-        val list2 = mutableListOf<LiveVideoDataClass>()
+        tvOne.text = localStorage.fullName
+        rcPrevious.adapter = rvAdapter
+
         repeat(2) {
             list2.add(LiveVideoDataClass(it))
         }
         rvAdapter.submitList(list2)
 
     }
+
+    override fun FragmentProfileBinding.navigation() {}
 }
