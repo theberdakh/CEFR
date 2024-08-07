@@ -2,7 +2,7 @@ package com.imax.cefr.di
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.imax.cefr.utils.LocalStorage
+import com.imax.cefr.data.pref.LocalStorage
 import org.koin.dsl.module
 
 val localStorageModule = module {

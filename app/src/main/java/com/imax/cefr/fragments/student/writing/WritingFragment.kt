@@ -7,7 +7,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.imax.cefr.R
 import com.imax.cefr.databinding.FragmentListeningBinding
-import com.imax.cefr.fragments.MainActivity
+import com.imax.cefr.MainActivity
 
 class WritingFragment : Fragment(R.layout.fragment_writing) {
 

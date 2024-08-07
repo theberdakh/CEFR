@@ -7,8 +7,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.imax.cefr.R
 import com.imax.cefr.databinding.FragmentSplashBinding
-import com.imax.cefr.utils.LocalStorage
-import com.imax.cefr.fragments.MainActivity
+import com.imax.cefr.data.pref.LocalStorage
+import com.imax.cefr.MainActivity
 import org.koin.android.ext.android.inject
 
 class SplashFragment : Fragment(R.layout.fragment_splash) {

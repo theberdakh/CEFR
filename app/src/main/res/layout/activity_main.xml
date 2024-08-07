@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".fragments.MainActivity">
+    tools:context=".MainActivity">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
@@ -85,7 +85,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="#353E81"
-            android:visibility="visible"
             android:contentDescription="@string/app_name"
             android:src="@drawable/home"
             app:layout_anchor="@id/bottomAppBar_student"

@@ -22,7 +22,7 @@
 
     <fragment
         android:id="@+id/gridFragment"
-        android:name="com.imax.cefr.fragments.entering.grid.GridFragment"
+        android:name="com.imax.cefr.fragments.entering.onboarding.OnBoardingFragment"
         android:label="GridFragment"
         tools:layout="@layout/fragment_grid">
         <action
@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/typeFragment"
-        android:name="com.imax.cefr.fragments.entering.select_user_type.TypeFragment"
+        android:name="com.imax.cefr.fragments.entering.select_user_type.SelectUserTypeFragment"
         android:label="TypeFragment"
         tools:layout="@layout/fragment_type">
         <action
@@ -40,7 +40,7 @@
     </fragment>
     <fragment
         android:id="@+id/signInFragment"
-        android:name="com.imax.cefr.fragments.entering.sign_in.SignInFragment"
+        android:name="com.imax.cefr.fragments.entering.login.LoginFragment"
         android:label="SignInFragment"
         tools:layout="@layout/fragment_sign_in">
         <action
@@ -75,13 +75,13 @@
     </fragment>
     <activity
         android:id="@+id/liveActivity"
-        android:name="com.imax.cefr.LiveActivity"
+        android:name="com.imax.cefr.fragments.teacher.stream.LiveStreamActivity"
         android:label="activity_live"
         tools:layout="@layout/activity_live" />
 
     <fragment
         android:id="@+id/webViewFragment"
-        android:name="com.imax.cefr.WebViewFragment"
+        android:name="com.imax.cefr.fragments.teacher.stream.WatchStreamFragment"
         android:label="WebViewFragment"
         tools:layout="@layout/fragment_webview">
 
@@ -91,7 +91,7 @@
     </fragment>
     <fragment
         android:id="@+id/studentMainFragment"
-        android:name="com.imax.cefr.fragments.StudentMainFragment"
+        android:name="com.imax.cefr.fragments.student.main.StudentMainFragment"
         android:label="StudentMainFragment"
         tools:layout="@layout/fragment_main_student">
         <action
@@ -117,7 +117,7 @@
         tools:layout="@layout/fragment_profile_student" />
     <activity
         android:id="@+id/homeActivity"
-        android:name="com.imax.cefr.HomeActivity"
+        android:name="com.imax.cefr.fragments.student.home.HomeActivity"
         android:label="activity_home"
         tools:layout="@layout/activity_home" />
     <fragment

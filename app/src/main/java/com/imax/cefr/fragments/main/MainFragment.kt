@@ -5,21 +5,20 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.imax.cefr.R
-import com.imax.cefr.RVAdapter
+import com.imax.cefr.fragments.teacher.adapter.LiveVideDataClassListAdapter
 import com.imax.cefr.data.models.LiveVideoDataClass
 import com.imax.cefr.databinding.FragmentMainBinding
-import com.imax.cefr.utils.LocalStorage
-import com.imax.cefr.fragments.MainActivity
-import com.imax.cefr.fragments.ViewPagerAdapter
+import com.imax.cefr.data.pref.LocalStorage
+import com.imax.cefr.MainActivity
+import com.imax.cefr.fragments.teacher.adapter.PinnedLiveStreamsAdapter
 import org.koin.android.ext.android.inject
 
 class MainFragment : Fragment(R.layout.fragment_main) {
 
     private lateinit var binding: FragmentMainBinding
     private lateinit var mainActivity: MainActivity
-    private lateinit var vpAdapter: ViewPagerAdapter
-    private lateinit var rvAdapter: RVAdapter
-
+    private lateinit var vpAdapter: PinnedLiveStreamsAdapter
+    private lateinit var rvAdapter: LiveVideDataClassListAdapter
     private val localStorage: LocalStorage by inject()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -33,8 +32,8 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         mainActivity = requireActivity() as MainActivity
         mainActivity.settingsBottomNavigationStudent(false)
         mainActivity.settingsBottomNavigation(true)
-        vpAdapter = ViewPagerAdapter()
-        rvAdapter = RVAdapter()
+        vpAdapter = PinnedLiveStreamsAdapter()
+        rvAdapter = LiveVideDataClassListAdapter()
 
         binding.viewPager.adapter = vpAdapter
         val list = mutableListOf<LiveVideoDataClass>()

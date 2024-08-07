@@ -1,8 +1,7 @@
 package com.imax.cefr.di
 
-import com.imax.cefr.data.remote.interceptors.AccessTokenInterceptor
-import com.imax.cefr.data.remote.CefrApi
-import com.imax.cefr.utils.Constants
+import com.imax.cefr.data.utils.AccessTokenInterceptor
+import com.imax.cefr.data.api.CefrApi
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
@@ -31,7 +30,7 @@ val networkModule = module {
 
         Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl(Constants.BASE_URL)
+            .baseUrl(BuildConfig.BASE_URL)
             .client(okHttpClient)
             .build()
     }
