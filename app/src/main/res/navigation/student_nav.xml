@@ -8,6 +8,42 @@
     <fragment
         android:id="@+id/student_main_fragment"
         android:name="com.imax.cefr.fragments.student.main.StudentMainFragment"
-        tools:layout="@layout/fragment_student_main"/>
+        tools:layout="@layout/fragment_student_main">
+        <action
+            android:id="@+id/action_student_main_fragment_to_grammarFragment"
+            app:destination="@id/grammarFragment" />
+        <action
+            android:id="@+id/action_student_main_fragment_to_listeningFragment"
+            app:destination="@id/listeningFragment" />
+        <action
+            android:id="@+id/action_student_main_fragment_to_readingFragment"
+            app:destination="@id/readingFragment" />
+        <action
+            android:id="@+id/action_student_main_fragment_to_speakingFragment"
+            app:destination="@id/speakingFragment" />
+        <action
+            android:id="@+id/action_student_main_fragment_to_writingFragment"
+            app:destination="@id/writingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/grammarFragment"
+        android:name="com.imax.cefr.fragments.student.grammar.GrammarFragment"
+        android:label="GrammarFragment" />
+    <fragment
+        android:id="@+id/listeningFragment"
+        android:name="com.imax.cefr.fragments.student.listening.ListeningFragment"
+        android:label="ListeningFragment" />
+    <fragment
+        android:id="@+id/readingFragment"
+        android:name="com.imax.cefr.fragments.student.reading.ReadingFragment"
+        android:label="ReadingFragment" />
+    <fragment
+        android:id="@+id/speakingFragment"
+        android:name="com.imax.cefr.fragments.student.speaking.SpeakingFragment"
+        android:label="SpeakingFragment" />
+    <fragment
+        android:id="@+id/writingFragment"
+        android:name="com.imax.cefr.fragments.student.writing.WritingFragment"
+        android:label="WritingFragment" />
 
 </navigation>
