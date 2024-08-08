@@ -57,4 +57,10 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+    <string name="daily">Daily</string>
+    <string name="monthly">Monthly</string>
+    <string name="all_the_time">All the time</string>
+    <string name="rating">Rating</string>
+    <string name="latest_update">Latest update 6:00</string>
+    <string name="grammar">Grammar</string>
 </resources>

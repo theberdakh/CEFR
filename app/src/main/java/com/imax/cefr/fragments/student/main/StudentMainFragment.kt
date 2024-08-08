@@ -5,11 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.imax.cefr.databinding.FragmentStudentMainBinding
 import com.imax.cefr.R
 import com.imax.cefr.core.base.fragment.replaceFragment
-import com.imax.cefr.databinding.FragmentStudentMainBinding
 import com.imax.cefr.fragments.student.home.StudentHomeFragment
 import com.imax.cefr.fragments.student.profile.StudentProfileFragment
+import com.imax.cefr.fragments.student.rating.StudentRatingFragment
 
 class StudentMainFragment: Fragment() {
 
@@ -39,7 +40,10 @@ class StudentMainFragment: Fragment() {
             when(menuItem.itemId){
                 R.id.item_menu_student_rating -> {
                     binding.toolbar.title = "Rating"
-                    //Replace to StudentRatingFragment()
+                    childFragmentManager.replaceFragment(
+                        R.id.fragment_student_main_container,
+                        StudentRatingFragment()
+                    )
                 }
                 R.id.item_menu_student_profile -> {
                     childFragmentManager.replaceFragment(
