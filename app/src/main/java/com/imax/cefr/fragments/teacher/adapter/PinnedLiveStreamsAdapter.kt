@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.imax.cefr.data.models.LiveVideoDataClass
-import com.imax.cefr.databinding.ItemLanguageBinding
+import com.imax.cefr.databinding.ItemScheduledLiveStreamBinding
 
 class LiveVideDataCallback : DiffUtil.ItemCallback<LiveVideoDataClass>() {
     override fun areItemsTheSame(
@@ -23,7 +23,7 @@ class LiveVideDataCallback : DiffUtil.ItemCallback<LiveVideoDataClass>() {
 class PinnedLiveStreamsAdapter :
     ListAdapter<LiveVideoDataClass, PinnedLiveStreamsAdapter.ViewHolder>(LiveVideDataCallback()) {
 
-    inner class ViewHolder(private val binding: ItemLanguageBinding) :
+    inner class ViewHolder(private val binding: ItemScheduledLiveStreamBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
             val data = getItem(position)
@@ -32,7 +32,7 @@ class PinnedLiveStreamsAdapter :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(
-        ItemLanguageBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        ItemScheduledLiveStreamBinding.inflate(LayoutInflater.from(parent.context), parent, false)
     )
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(position)

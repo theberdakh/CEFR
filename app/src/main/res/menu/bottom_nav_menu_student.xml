@@ -3,7 +3,7 @@
 
     <item
         android:id="@+id/item_menu_student_rating"
-        android:icon="@drawable/gistogram"
+        android:icon="@drawable/ic_gistogram"
         android:title="Rating" />
 
     <item

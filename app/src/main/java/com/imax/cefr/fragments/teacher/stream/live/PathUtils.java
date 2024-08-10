@@ -1,11 +1,10 @@
-package com.imax.cefr.fragments.teacher.stream;
+package com.imax.cefr.fragments.teacher.stream.live;
 
 import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;

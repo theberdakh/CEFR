@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- android:fontFamily="@font/noto_serif"
-            android:gravity="center"
-            android:text="Main"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold"-->
     <style name="ToolbarTitle">
         <item name="fontFamily">@font/noto_serif</item>
         <item name="android:textSize">18sp</item>
         <item name="android:textStyle">bold</item>
     </style>
+
+    <style name="ButtonText">
+        <item name="fontFamily">@font/noto_serif</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>

@@ -27,7 +27,7 @@
         android:theme="@style/Theme.CEFR"
         tools:targetApi="31">
         <activity
-            android:name=".fragments.teacher.stream.LiveStreamActivity"
+            android:name=".fragments.teacher.stream.live.LiveStreamActivity"
             android:theme="@style/LiveActivityTheme"
             android:exported="false" />
         <activity

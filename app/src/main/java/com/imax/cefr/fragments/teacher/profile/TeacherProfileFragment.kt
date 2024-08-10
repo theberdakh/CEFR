@@ -12,7 +12,6 @@ class TeacherProfileFragment :BaseFragment<FragmentTeacherProfileBinding>(Fragme
 
     private val vpAdapter by lazy(LazyThreadSafetyMode.NONE) {PinnedLiveStreamsAdapter() }
     private val rvAdapter by lazy(LazyThreadSafetyMode.NONE) { LiveVideDataClassListAdapter() }
-    private val localStorage: LocalStorage by inject()
     private val list = mutableListOf<LiveVideoDataClass>()
     private val list2 = mutableListOf<LiveVideoDataClass>()
 

@@ -23,7 +23,6 @@ data class FakeUser(
 
 class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::inflate) {
 
-    private val localStorage: LocalStorage by inject()
     private val loginViewModel by viewModel<LoginViewModel>()
     private val fakeUsers
         get() = listOf(

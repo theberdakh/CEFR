@@ -13,8 +13,6 @@ fun FragmentManager.changeNavGraph(@IdRes navHostView: Int, @NavigationRes navig
     navHostFragment.navController.graph = graph
 }
 
-fun getFragmentManager(@IdRes navHostView: Int) {
-}
 
 fun FragmentManager.addFragment(
     @IdRes fragmentContainer: Int,

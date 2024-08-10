@@ -1,4 +1,4 @@
-package com.imax.cefr.fragments.teacher.stream
+package com.imax.cefr.fragments.teacher.stream.live
 
 import android.Manifest
 import android.annotation.SuppressLint

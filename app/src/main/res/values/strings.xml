@@ -63,4 +63,13 @@
     <string name="rating">Rating</string>
     <string name="latest_update">Latest update 6:00</string>
     <string name="grammar">Grammar</string>
+    <string name="hint_theme">Theme</string>
+    <string name="hint_add_date">Date</string>
+    <string name="hint_add_time">Time</string>
+    <string name="title_schedule">Schedule</string>
+    <string name="hour_and_minute">%1$s:%2$s</string>
+    <string name="title_cancel">Cancel</string>
+    <string name="title_start_now">Start Now</string>
+    <string name="title_start_streaming">Start streaming</string>
+    <string name="description_start_streaming">You can start streaming right now or schedule it for later.</string>
 </resources>

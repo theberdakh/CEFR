@@ -1,3 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="efd"
+        android:textColor="@color/text_color_secondary"
+        android:padding="@dimen/normal_100"
+        android:layout_marginHorizontal="@dimen/normal_100"
+        android:background="@drawable/shape_text_field_strokeless"-->
+    <style name="TextFieldNoStroke">
+        <item name="android:textColor">@color/text_color_secondary</item>
+        <item name="android:padding">@dimen/normal_100</item>
+        <item name="android:background">@drawable/shape_card_rectangular_no_stroke</item>
+        <item name="android:textAppearance">@style/ButtonText</item>
+        <item name="android:maxLines">1</item>
+    </style>
 </resources>

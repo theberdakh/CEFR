@@ -15,7 +15,6 @@ import org.koin.android.ext.android.inject
 class TeacherHomeFragment: BaseFragment<FragmentTeacherHomeBinding>(FragmentTeacherHomeBinding::inflate) {
     private val vpAdapter by lazy(LazyThreadSafetyMode.NONE) { PinnedLiveStreamsAdapter() }
     private val rvAdapter by lazy(LazyThreadSafetyMode.NONE) { LiveVideDataClassListAdapter()  }
-    private val localStorage: LocalStorage by inject()
 
 
     override fun FragmentTeacherHomeBinding.navigation() {}

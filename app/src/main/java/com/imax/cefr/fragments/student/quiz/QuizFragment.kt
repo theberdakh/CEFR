@@ -12,9 +12,7 @@ class QuizFragment : Fragment(R.layout.fragment_test) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         binding = FragmentTestBinding.bind(view)
-
 
 
     }
