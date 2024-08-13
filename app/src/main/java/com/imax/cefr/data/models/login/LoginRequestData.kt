@@ -1,4 +1,4 @@
-package com.imax.cefr.data.models
+package com.imax.cefr.data.models.login
 
 data class LoginRequestData(
     val email: String,

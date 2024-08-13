@@ -2,7 +2,7 @@ package com.imax.cefr.di
 
 import com.imax.cefr.BuildConfig
 import com.imax.cefr.core.base.interceptor.AccessTokenInterceptor
-import com.imax.cefr.data.api.CefrApi
+import com.imax.cefr.data.api.auth.TwitchEduAuthApi
 import com.imax.cefr.core.base.constants.Constants
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -38,6 +38,6 @@ val networkModule = module {
     }
 }
 
-fun getCefrService(retrofit: Retrofit): CefrApi {
-    return retrofit.create(CefrApi::class.java)
+fun getCefrService(retrofit: Retrofit): TwitchEduAuthApi {
+    return retrofit.create(TwitchEduAuthApi::class.java)
 }

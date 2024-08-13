@@ -36,7 +36,7 @@ class StreamNowFragment :
 
         toolbarSchedule.title = getString(R.string.title_start_now)
         btnSchedule.setText(R.string.title_start_streaming)
-        tvPreviewFullName.text = localStorage.fullName
+        tvPreviewFullName.text = localStorage.getUser().name
 
 
 

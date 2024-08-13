@@ -33,7 +33,7 @@ class TeacherProfileFragment :BaseFragment<FragmentTeacherProfileBinding>(Fragme
         }
         vpAdapter.submitList(list)
 
-        tvOne.text = localStorage.fullName
+        tvOne.text = localStorage.getUser().name
         rcPrevious.adapter = rvAdapter
 
         repeat(2) {

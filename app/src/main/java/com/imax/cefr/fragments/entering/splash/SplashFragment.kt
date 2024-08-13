@@ -30,7 +30,10 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
         binding.infoLogo.playAnimation()
 
         Handler().postDelayed({
-            val navGraph = when(localStorage.type){
+
+            Log.d("SplashFragment", "${localStorage.getUser().role}" )
+
+            val navGraph = when(localStorage.getUser().role){
                 UserType.TEACHER.token -> R.navigation.teacher_nav
                 UserType.STUDENT.token -> R.navigation.student_nav
                 else -> R.navigation.login_nav

@@ -79,12 +79,12 @@ class SelectFragment : Fragment(R.layout.fragment_select) {
             binding.ivAdd.setImageResource(R.drawable.professor_amico)
             binding.tvAddOne.setText(R.string.teacher)
             binding.tvAddTwo.setText(R.string.teacher_desc)
-            localStorage.type = "Teacher"
+       //     localStorage.get = "Teacher"
         } else {
             binding.ivAdd.setImageResource(R.drawable.dictionary_amico)
             binding.tvAddOne.setText(R.string.student)
             binding.tvAddTwo.setText(R.string.student_desc)
-            localStorage.type = "Student"
+         //   localStorage.type = "Student"
         }
     }
 

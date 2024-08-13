@@ -1,20 +1,11 @@
 package com.imax.cefr.fragments.teacher.stream.schedule
 
-import android.util.Log
-import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doAfterTextChanged
-import androidx.navigation.fragment.findNavController
-import com.google.android.material.datepicker.MaterialDatePicker
 import com.imax.cefr.R
 import com.imax.cefr.core.base.fragment.BaseFragment
-import com.imax.cefr.core.base.fragment.Hour
-import com.imax.cefr.core.base.fragment.Minute
-import com.imax.cefr.core.base.pref.LocalStorage
 import com.imax.cefr.databinding.FragmentStreamScheduleBinding
 import com.imax.cefr.fragments.teacher.adapter.CourseNumber
 import com.imax.cefr.fragments.teacher.adapter.CourseNumberListAdapter
-import org.koin.android.ext.android.inject
-import kotlin.math.min
 
 class ScheduleStreamFragment: BaseFragment<FragmentStreamScheduleBinding>(FragmentStreamScheduleBinding::inflate) {
 
@@ -43,7 +34,7 @@ class ScheduleStreamFragment: BaseFragment<FragmentStreamScheduleBinding>(Fragme
 
         rvCourseNumbers.adapter = adapter
 
-        tvPreviewFullName.text = localStorage.fullName
+        tvPreviewFullName.text = localStorage.getUser().name
 
         etAddTheme.doAfterTextChanged { text ->
             if (text.toString().isEmpty()){

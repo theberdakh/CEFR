@@ -29,7 +29,7 @@ class TeacherHomeFragment: BaseFragment<FragmentTeacherHomeBinding>(FragmentTeac
         repeat(5) { list2.add(LiveVideoDataClass(it)) }
         rvAdapter.submitList(list2.toList())
 
-        when (localStorage.twitchChannelUsername) {
+        when (localStorage.getUser().channelName) {
             "amir_b1" -> {
                 cardInnerOne.visibility = View.GONE
             }

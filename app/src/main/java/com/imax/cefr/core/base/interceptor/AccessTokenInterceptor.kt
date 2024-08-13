@@ -9,7 +9,7 @@ class AccessTokenInterceptor(private val localStorage: LocalStorage) : Intercept
         chain.request().newBuilder()
             .addHeader(
                 "Authorization",
-                "Bearer ${localStorage.token}"
+                "Bearer ${localStorage.getToken()}"
             ).build()
     )
 }

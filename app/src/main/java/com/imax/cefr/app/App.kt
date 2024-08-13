@@ -2,7 +2,11 @@ package com.imax.cefr.app
 
 import android.app.Application
 import androidx.appcompat.app.AppCompatDelegate
-import com.imax.cefr.di.parentModule
+import com.imax.cefr.di.dataModule
+import com.imax.cefr.di.domainModule
+import com.imax.cefr.di.localStorageModule
+import com.imax.cefr.di.networkModule
+import com.imax.cefr.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -14,10 +18,10 @@ class App : Application() {
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         startKoin {
-            //ozgerttim
+
             androidLogger(Level.DEBUG)
             androidContext(this@App)
-            modules(parentModule)
+            modules(listOf(viewModelModule, dataModule, domainModule, networkModule, localStorageModule))
         }
     }
 }

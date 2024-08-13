@@ -7,7 +7,7 @@ import org.koin.dsl.module
 
 val domainModule = module {
 
-    factory<LoginUseCase> {
+    single<LoginUseCase> {
         LoginUseCaseImpl(repo = get())
     }
 }
