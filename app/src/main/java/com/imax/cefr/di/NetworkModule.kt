@@ -4,6 +4,7 @@ import com.imax.cefr.BuildConfig
 import com.imax.cefr.core.base.interceptor.AccessTokenInterceptor
 import com.imax.cefr.data.api.auth.TwitchEduAuthApi
 import com.imax.cefr.core.base.constants.Constants
+import com.imax.cefr.data.api.streams.StreamsApi
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
@@ -15,6 +16,10 @@ val networkModule = module {
 
     single {
         getCefrService(retrofit = get())
+    }
+
+    single {
+        getStreamApi(retrofit = get())
     }
 
     single<Retrofit> {
@@ -40,4 +45,8 @@ val networkModule = module {
 
 fun getCefrService(retrofit: Retrofit): TwitchEduAuthApi {
     return retrofit.create(TwitchEduAuthApi::class.java)
+}
+
+fun getStreamApi(retrofit: Retrofit): StreamsApi {
+    return retrofit.create(StreamsApi::class.java)
 }

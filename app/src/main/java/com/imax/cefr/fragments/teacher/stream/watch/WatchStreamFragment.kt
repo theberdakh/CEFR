@@ -1,4 +1,4 @@
-package com.imax.cefr.fragments.teacher.watch
+package com.imax.cefr.fragments.teacher.stream.watch
 
 import android.annotation.SuppressLint
 import android.webkit.WebViewClient

@@ -104,6 +104,7 @@ abstract class BaseFragment<VB: ViewBinding>(private val inflate: Inflate<VB>) :
         timePicker.show(requireActivity().supportFragmentManager, "tag")
 
         timePicker.addOnPositiveButtonClickListener {
+
             positiveButtonClick.invoke(timePicker.hour, timePicker.minute)
         }
 

@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/TextFieldNoStroke"
+    android:textColor="@color/text_color_secondary"
+    android:padding="@dimen/normal_100"
+    android:background="@drawable/shape_card_rectangular_no_stroke"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:backgroundTint="@color/card_color_background"
+    android:textAppearance="@style/ButtonText"
+    android:maxLines="1"
     android:layout_margin="@dimen/small_100"
     tools:text="123"
     android:textAlignment="center" />

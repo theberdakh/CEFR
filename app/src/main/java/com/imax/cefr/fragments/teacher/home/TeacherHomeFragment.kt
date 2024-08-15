@@ -9,7 +9,7 @@ import com.imax.cefr.data.models.LiveVideoDataClass
 import com.imax.cefr.databinding.FragmentTeacherHomeBinding
 import com.imax.cefr.fragments.teacher.adapter.LiveVideDataClassListAdapter
 import com.imax.cefr.fragments.teacher.adapter.PinnedLiveStreamsAdapter
-import com.imax.cefr.fragments.teacher.watch.WatchStreamFragment
+import com.imax.cefr.fragments.teacher.stream.watch.WatchStreamFragment
 import org.koin.android.ext.android.inject
 
 class TeacherHomeFragment: BaseFragment<FragmentTeacherHomeBinding>(FragmentTeacherHomeBinding::inflate) {
