@@ -48,7 +48,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
-        android:id="@+id/tv_one"
+        android:id="@+id/streamDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
@@ -77,7 +77,7 @@
         app:boxCornerRadiusTopStart="16dp"
         app:boxStrokeColor="@color/brand_color_second"
         app:hintTextColor="#707B81"
-        app:layout_constraintTop_toBottomOf="@id/tv_one">
+        app:layout_constraintTop_toBottomOf="@id/streamDate">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_email"

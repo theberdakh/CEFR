@@ -18,7 +18,7 @@ class StudentProfileFragment : Fragment(R.layout.fragment_student_profile) {
         binding = FragmentStudentProfileBinding.bind(view)
 
 
-        binding.tvOne.text = localStorage.getUser().name
+       // binding.tvOne.text = localStorage.getUser().name
 
     }
 }

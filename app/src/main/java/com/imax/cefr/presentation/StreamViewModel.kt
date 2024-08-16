@@ -8,6 +8,7 @@ import com.imax.cefr.core.base.result.Status
 import com.imax.cefr.data.models.login.StudentResponseData
 import com.imax.cefr.data.models.stream.CreateStreamRequestData
 import com.imax.cefr.data.models.stream.CreateStreamResponseData
+import com.imax.cefr.data.models.stream.all.AllStreamsResponse
 import com.imax.cefr.domain.use_case.StreamUseCase
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -30,6 +31,23 @@ class StreamViewModel(private val useCase: StreamUseCase): ViewModel() {
 
                 Status.ERROR -> resultModel.errorThrowable?.let { error ->
                     _createStreamFlow.emit(Resource.Error(error))
+                }
+            }
+        }
+    }
+
+    private val _allStreamFlow = MutableSharedFlow<Resource<AllStreamsResponse>>()
+    internal val allStreamFlow: Flow<Resource<AllStreamsResponse>> get() = _allStreamFlow.asSharedFlow()
+
+    fun getAllStream() = viewModelScope.launch {
+        _allStreamFlow.emit(Resource.Loading)
+        useCase.getAllStream().also { model ->
+            when(model.status){
+                Status.SUCCESS -> model.data?.let {
+                    _allStreamFlow.emit(Resource.Success(it))
+                }
+                Status.ERROR -> model.errorThrowable?.let {
+                    _allStreamFlow.emit(Resource.Error(it))
                 }
             }
         }

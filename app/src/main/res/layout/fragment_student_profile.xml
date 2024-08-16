@@ -25,7 +25,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_one"
+                android:id="@+id/streamDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="20dp"
@@ -40,7 +40,7 @@
 
 
             <TextView
-                android:id="@+id/tv_two"
+                android:id="@+id/streamTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/noto_serif"
@@ -50,7 +50,7 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_one" />
+                app:layout_constraintTop_toBottomOf="@id/streamDate" />
 
             <TextView
                 android:id="@+id/tv_previous"
@@ -65,7 +65,7 @@
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_two" />
+                app:layout_constraintTop_toBottomOf="@id/streamTime" />
 
             <LinearLayout
                 android:layout_width="match_parent"

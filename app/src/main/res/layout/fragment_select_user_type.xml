@@ -16,7 +16,7 @@
 
 
     <TextView
-        android:id="@+id/tv_add_one"
+        android:id="@+id/streamTheme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
@@ -42,7 +42,7 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_add_one" />
+        app:layout_constraintTop_toBottomOf="@id/streamTheme" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_student"

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.imax.cefr.R
 import com.imax.cefr.core.base.fragment.addFragmentToBackStack
@@ -25,16 +26,20 @@ class TeacherMainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentTeacherMainBinding.inflate(inflater, container, false)
-        childFragmentManager.replaceFragment(
-            R.id.fragment_teacher_main_container,
-            TeacherHomeFragment()
-        )
+
 
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.toolbar.title = "Main"
+        childFragmentManager.replaceFragment(
+            R.id.fragment_teacher_main_container,
+            TeacherHomeFragment()
+        )
+
 
         binding.fabTeacherMain.setOnClickListener {
 

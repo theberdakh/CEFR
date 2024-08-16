@@ -2,6 +2,7 @@ package com.imax.cefr.data.api.streams
 
 import com.imax.cefr.data.models.stream.CreateStreamRequestData
 import com.imax.cefr.data.models.stream.CreateStreamResponseData
+import com.imax.cefr.data.models.stream.all.AllStreamsResponse
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.DELETE
@@ -18,8 +19,8 @@ import retrofit2.http.Path
 
 interface StreamsApi {
 
-    @GET("/streams")
-    suspend fun getAllStreams()
+    @GET("/api/streams")
+    suspend fun getAllStreams(): Response<AllStreamsResponse>
 
     @GET("/streams/{id}")
     suspend fun getSpecificStream(@Path("id") streamId: Int)

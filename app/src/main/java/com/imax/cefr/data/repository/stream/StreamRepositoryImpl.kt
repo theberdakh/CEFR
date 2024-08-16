@@ -5,6 +5,7 @@ import com.imax.cefr.core.base.source.BaseDataSource
 import com.imax.cefr.data.api.streams.StreamsApi
 import com.imax.cefr.data.models.stream.CreateStreamRequestData
 import com.imax.cefr.data.models.stream.CreateStreamResponseData
+import com.imax.cefr.data.models.stream.all.AllStreamsResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -16,5 +17,10 @@ class StreamRepositoryImpl(private val api: StreamsApi) : StreamRepository, Base
             }
         }
 
-
+    override suspend fun getAllStream(): ResultModel<AllStreamsResponse>  =
+        invokeRequest {
+            withContext(Dispatchers.IO){
+                api.getAllStreams()
+            }
+        }
 }
