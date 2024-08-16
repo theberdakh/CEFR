@@ -3,10 +3,8 @@ package com.imax.cefr.fragments.entering.onboarding
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.imax.cefr.R
-import com.imax.cefr.MainActivity
 import com.imax.cefr.core.base.fragment.replaceFragment
 import com.imax.cefr.data.models.OnBoardingData
 import com.imax.cefr.databinding.FragmentOnboardingBinding
@@ -20,19 +18,19 @@ class OnBoardingFragment : Fragment(R.layout.fragment_onboarding) {
     private val onBoardingDataList = listOf(
         OnBoardingData(
             0,
-            R.drawable.ic_add_1,
+            R.drawable.illustration_onboarding_1,
             "Confidence",
             "With speaking lessons, you will speak in a\nshort time"
         ),
         OnBoardingData(
             1,
-            R.drawable.ic_add_2,
+            R.drawable.illustration_onboarding_2,
             "Patience",
             "Take your time to learn. Develop a habit and\nmake it a part of your daily life"
         ),
         OnBoardingData(
             2,
-            R.drawable.ic_add_3,
+            R.drawable.illustration_onboarding_3,
             "Modern Security",
             "We will provide you with the best and most\nmodern security"
         ),
@@ -48,9 +46,6 @@ class OnBoardingFragment : Fragment(R.layout.fragment_onboarding) {
     }
 
     private fun initVariables() {
- /*       mainActivity = requireActivity() as MainActivity
-        mainActivity.settingsBottomNavigation(false)
-        mainActivity.settingsBottomNavigationStudent(false)*/
         binding.viewPager.adapter = onBoardingViewPagerAdapter
     }
 
@@ -95,11 +90,6 @@ class OnBoardingFragment : Fragment(R.layout.fragment_onboarding) {
                 binding.dot3.setImageResource(R.color.brand_color_second)
             }
         }
-    }
-    override fun onDestroy() {
-        super.onDestroy()
-       /* mainActivity.settingsBottomNavigation(false)
-        mainActivity.settingsBottomNavigationStudent(false)*/
     }
 }
 

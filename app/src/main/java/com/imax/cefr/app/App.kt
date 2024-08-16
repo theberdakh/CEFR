@@ -18,7 +18,6 @@ class App : Application() {
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         startKoin {
-
             androidLogger(Level.DEBUG)
             androidContext(this@App)
             modules(listOf(viewModelModule, dataModule, domainModule, networkModule, localStorageModule))

@@ -23,23 +23,11 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
 
     private val loginViewModel by viewModel<LoginViewModel>()
 
-    private fun navigateByRole(role: String) {
-        val navGraph = when (role) {
-            UserRole.TEACHER.role -> R.navigation.teacher_nav
-            UserRole.STUDENT.role -> R.navigation.student_nav
-            else -> throw UnknownError("Unknown UserRule: ${localStorage.getUser().role}")
-        }
-        requireActivity().supportFragmentManager.changeNavGraph(
-            R.id.activity_container_view,
-            navGraph
-        )
-    }
 
     override fun FragmentLoginBinding.observeViewModel() {
         loginViewModel.loginFlow.onEach { result ->
             when(result) {
                 is Resource.Success -> {
-                    Log.d("LoginFragment", "Success ${result.data}")
                     result.data?.let { loginResponseData ->
                         localStorage.storeToken(loginResponseData.token)
                     }
@@ -47,8 +35,6 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
                     result.data?.user?.let {
                         user -> localStorage.storeUser(user)
                         localStorage.storeLogin(true)
-                        Log.d("LoginFragment", "Role: ${user.role}")
-                        navigateByRole(result.value.user.role)
                     }
 
                 }

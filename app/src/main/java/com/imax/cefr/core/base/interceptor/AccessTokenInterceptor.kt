@@ -1,6 +1,5 @@
 package com.imax.cefr.core.base.interceptor
 
-import android.util.Log
 import com.imax.cefr.core.base.pref.LocalStorage
 import okhttp3.Interceptor
 

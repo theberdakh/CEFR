@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/teacherMainFragment"
-        android:name="com.imax.cefr.fragments.teacher.main.TeacherMainFragment" />
+        android:name="com.imax.cefr.fragments.main.TeacherMainFragment" />
 
 
 </navigation>
