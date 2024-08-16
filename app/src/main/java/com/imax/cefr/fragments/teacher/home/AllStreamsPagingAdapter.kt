@@ -13,9 +13,22 @@ class AllStreamsPagingAdapter :
     PagingDataAdapter<StreamResponseData, AllStreamsPagingAdapter.ViewHolder>(
         StreamResponseDataItemCallback()
     ) {
+
+    private var onClickStream: ((StreamResponseData) -> Unit)? = null
+
+    fun setOnClickSteamListener(block: (StreamResponseData) -> Unit) {
+        onClickStream = block
+    }
+
     inner class ViewHolder(private val binding: ItemScheduledLiveStreamBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind() {
+            binding.root.setOnClickListener {
+                getItem(absoluteAdapterPosition)?.also {
+                    onClickStream?.invoke(it)
+                }
+
+            }
            getItem(absoluteAdapterPosition)?.apply {
                 binding.streamTheme.text = streamTitle
                 binding.streamAuthor.text = teacherName

@@ -90,7 +90,7 @@ class ScheduleStreamFragment :
                 CreateStreamRequestData(
                     streamTitle = etAddTheme.getString(),
                     startTime = startTime,
-                    description = "dscdd",
+                    description = localStorage.getUser().channelName,
                     endTime = endTime,
                     group = tvCourseNumber.text.toString(),
                     status = "planned",

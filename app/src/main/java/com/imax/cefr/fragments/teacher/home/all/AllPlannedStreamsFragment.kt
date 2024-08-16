@@ -3,12 +3,15 @@ package com.imax.cefr.fragments.teacher.home.all
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.filter
 import androidx.paging.map
+import com.imax.cefr.R
 import com.imax.cefr.core.base.fragment.BaseFragment
+import com.imax.cefr.core.base.fragment.addFragmentToBackStack
 import com.imax.cefr.core.base.resource.Resource
 import com.imax.cefr.data.models.stream.LiveStreamStatus
 import com.imax.cefr.databinding.FragmentListStreamsBinding
 import com.imax.cefr.fragments.teacher.home.AllStreamsPagingAdapter
 import com.imax.cefr.fragments.teacher.home.StreamRecyclerAdapter
+import com.imax.cefr.fragments.teacher.stream.watch.WatchStreamFragment
 import com.imax.cefr.presentation.StreamViewModel
 import com.imax.cefr.utils.collectFlowLatest
 import com.imax.cefr.utils.toastMessage
@@ -25,6 +28,9 @@ class AllPlannedStreamsFragment: BaseFragment<FragmentListStreamsBinding>(Fragme
     override fun FragmentListStreamsBinding.setUpViews() {
         listStreamsRecyclerView.adapter = adapter
         streamViewModel.getAllStream(20)
+        adapter.setOnClickSteamListener { stream ->
+            requireActivity().supportFragmentManager.addFragmentToBackStack(R.id.activity_container_view, WatchStreamFragment(stream.description))
+        }
     }
 
     override fun FragmentListStreamsBinding.observeViewModel() {
