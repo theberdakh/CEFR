@@ -7,8 +7,14 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.google.android.material.snackbar.Snackbar
 import com.imax.cefr.BuildConfig
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
@@ -28,6 +34,19 @@ fun View.invisible() {
     this.visibility = View.INVISIBLE
 }
 
+fun <V> Fragment.collectFlowLatest(
+    collectableFlow: Flow<V>,
+    lifecycleState: Lifecycle.State = Lifecycle.State.STARTED,
+    actionOnCollect: suspend (value: V) -> Unit
+) {
+    viewLifecycleOwner.lifecycleScope.launch {
+        repeatOnLifecycle(lifecycleState) {
+            collectableFlow.collectLatest { value ->
+                actionOnCollect(value)
+            }
+        }
+    }
+}
 fun Fragment.toastMessage(message: String) {
     Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
 }

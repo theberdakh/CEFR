@@ -10,8 +10,7 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Path
-
-
+import retrofit2.http.Query
 
 
 //
@@ -20,7 +19,7 @@ import retrofit2.http.Path
 interface StreamsApi {
 
     @GET("/api/streams")
-    suspend fun getAllStreams(): Response<AllStreamsResponse>
+    suspend fun getAllStreams(@Query("page") page: Int, @Query("limit") limit: Int): Response<AllStreamsResponse>
 
     @GET("/streams/{id}")
     suspend fun getSpecificStream(@Path("id") streamId: Int)

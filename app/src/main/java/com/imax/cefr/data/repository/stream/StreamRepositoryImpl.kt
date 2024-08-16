@@ -17,10 +17,10 @@ class StreamRepositoryImpl(private val api: StreamsApi) : StreamRepository, Base
             }
         }
 
-    override suspend fun getAllStream(): ResultModel<AllStreamsResponse>  =
+    override suspend fun getAllStream(page: Int, limit: Int): ResultModel<AllStreamsResponse>  =
         invokeRequest {
             withContext(Dispatchers.IO){
-                api.getAllStreams()
+                api.getAllStreams(page, limit)
             }
         }
 }

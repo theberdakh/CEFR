@@ -7,5 +7,5 @@ import com.imax.cefr.data.models.stream.all.AllStreamsResponse
 
 interface StreamRepository {
     suspend fun createStream(body: CreateStreamRequestData): ResultModel<CreateStreamResponseData>
-    suspend fun getAllStream(): ResultModel<AllStreamsResponse>
+    suspend fun getAllStream(page: Int, limit: Int): ResultModel<AllStreamsResponse>
 }

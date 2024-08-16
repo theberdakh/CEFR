@@ -2,12 +2,15 @@ package com.imax.cefr.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.paging.PagingData
+import androidx.paging.cachedIn
 import com.imax.cefr.core.base.resource.Resource
 import com.imax.cefr.core.base.result.ResultModel
 import com.imax.cefr.core.base.result.Status
 import com.imax.cefr.data.models.login.StudentResponseData
 import com.imax.cefr.data.models.stream.CreateStreamRequestData
 import com.imax.cefr.data.models.stream.CreateStreamResponseData
+import com.imax.cefr.data.models.stream.StreamResponseData
 import com.imax.cefr.data.models.stream.all.AllStreamsResponse
 import com.imax.cefr.domain.use_case.StreamUseCase
 import kotlinx.coroutines.flow.Flow
@@ -36,20 +39,12 @@ class StreamViewModel(private val useCase: StreamUseCase): ViewModel() {
         }
     }
 
-    private val _allStreamFlow = MutableSharedFlow<Resource<AllStreamsResponse>>()
-    internal val allStreamFlow: Flow<Resource<AllStreamsResponse>> get() = _allStreamFlow.asSharedFlow()
+    private val _allStreamFlow: MutableSharedFlow<Flow<PagingData<StreamResponseData>>> = MutableSharedFlow()
+    internal val allStreamFlow get() = _allStreamFlow.asSharedFlow()
 
-    fun getAllStream() = viewModelScope.launch {
-        _allStreamFlow.emit(Resource.Loading)
-        useCase.getAllStream().also { model ->
-            when(model.status){
-                Status.SUCCESS -> model.data?.let {
-                    _allStreamFlow.emit(Resource.Success(it))
-                }
-                Status.ERROR -> model.errorThrowable?.let {
-                    _allStreamFlow.emit(Resource.Error(it))
-                }
-            }
+    fun getAllStream(limit: Int) = viewModelScope.launch {
+        useCase.getAllStream(limit).cachedIn(viewModelScope).also {
+            _allStreamFlow.emit(it)
         }
     }
 
