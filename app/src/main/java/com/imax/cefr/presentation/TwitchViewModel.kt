@@ -4,8 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.imax.cefr.core.base.resource.Resource
 import com.imax.cefr.core.base.result.Status
-import com.imax.cefr.data.models.twitch.TwitchLoginData
-import com.imax.cefr.data.models.twitch.TwitchVideoData
+import com.imax.cefr.data.models.twitch.login.TwitchLoginData
+import com.imax.cefr.data.models.twitch.video.TwitchVideoData
 import com.imax.cefr.domain.use_case.TwitchUseCase
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow

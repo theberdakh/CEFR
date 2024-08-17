@@ -1,4 +1,4 @@
-package com.imax.cefr.data.models.twitch
+package com.imax.cefr.data.models.twitch.login
 
 data class TwitchLoginChild(
     val broadcaster_type: String,

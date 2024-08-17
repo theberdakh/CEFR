@@ -33,7 +33,7 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
         binding.infoLogo.playAnimation()
 
         viewLifecycleOwner.lifecycleScope.launch {
-            delay(2000)
+            delay(1800)
 
             val navGraph = if (localStorage.isLoggedIn()) {
                 R.navigation.teacher_nav

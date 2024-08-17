@@ -1,6 +1,7 @@
 package com.imax.cefr.fragments.home.all
 
 import androidx.lifecycle.lifecycleScope
+import androidx.paging.PagingData
 import androidx.paging.filter
 import com.imax.cefr.R
 import com.imax.cefr.core.base.fragment.BaseFragment
@@ -22,6 +23,14 @@ class AllPlannedStreamsFragment: BaseFragment<FragmentListStreamsBinding>(Fragme
     override fun FragmentListStreamsBinding.navigation() {}
 
     override fun FragmentListStreamsBinding.setUpViews() {
+
+        listStreamsRefresh.setOnRefreshListener {
+            adapter.submitData(lifecycle, PagingData.empty())
+            streamViewModel.getAllStream(20)
+            listStreamsRefresh.isRefreshing = false
+        }
+
+
         listStreamsRecyclerView.adapter = adapter
         streamViewModel.getAllStream(20)
         adapter.setOnClickSteamListener { stream ->

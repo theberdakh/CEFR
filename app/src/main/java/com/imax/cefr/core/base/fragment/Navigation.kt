@@ -35,9 +35,10 @@ fun FragmentManager.replaceFragment(
 
 fun FragmentManager.addFragmentToBackStack(
     @IdRes fragmentContainer: Int,
-    fragment: Fragment
+    fragment: Fragment,
+    tag: String = fragment.javaClass.simpleName
 ) {
-    val fragmentInStack = this.findFragmentByTag(fragment.javaClass.simpleName)
+    val fragmentInStack = this.findFragmentByTag(tag)
     val transaction = this.beginTransaction()
 
     val fragments = this.fragments
@@ -49,7 +50,7 @@ fun FragmentManager.addFragmentToBackStack(
 
     if (fragmentInStack == null) {
 
-        transaction.add(fragmentContainer, fragment, fragment.javaClass.simpleName)
+        transaction.add(fragmentContainer, fragment, tag)
         transaction.addToBackStack(fragment.javaClass.simpleName)
         transaction.commit()
     }

@@ -8,6 +8,8 @@
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/teacherHomeTabLayout"
         android:backgroundTint="@color/white"
+        app:tabInlineLabel="true"
+        app:tabMode="auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

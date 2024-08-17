@@ -1,25 +1,41 @@
 package com.imax.cefr.fragments.channel
 
-import android.util.Log
 import androidx.lifecycle.lifecycleScope
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.BitmapTransformation
+import com.imax.cefr.R
 import com.imax.cefr.core.base.fragment.BaseFragment
+import com.imax.cefr.core.base.fragment.addFragmentToBackStack
 import com.imax.cefr.core.base.resource.Resource
+import com.imax.cefr.data.models.stream.StreamResponseData
 import com.imax.cefr.databinding.FragmentChannelBinding
+import com.imax.cefr.fragments.teacher.stream.watch.WatchStreamFragment
 import com.imax.cefr.presentation.TwitchViewModel
 import com.imax.cefr.utils.toastMessage
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class ChannelFragment(private val channelUsername: String) :
+class ChannelFragment(private val stream: StreamResponseData) :
     BaseFragment<FragmentChannelBinding>(FragmentChannelBinding::inflate) {
     private val twitchViewModel by viewModel<TwitchViewModel>()
     private val adapter by lazy(LazyThreadSafetyMode.NONE) { TwitchVideosAdapter() }
 
-    override fun FragmentChannelBinding.navigation() {
-    }
+    override fun FragmentChannelBinding.navigation() {}
 
     override fun FragmentChannelBinding.setUpViews() {
+
+        channelTitle.text = stream.teacherName
+        channelSubtitle.text = getString(R.string.teacher)
+
+        adapter.setOnVideoClickListener { twitchStream ->
+            requireActivity().supportFragmentManager.addFragmentToBackStack(
+                R.id.activity_container_view,
+                WatchStreamFragment(stream.copy(description = twitchStream.url)), twitchStream.url
+            )
+
+        }
+
         channelBack.setOnClickListener {
             requireActivity().supportFragmentManager.popBackStack()
         }
@@ -28,35 +44,42 @@ class ChannelFragment(private val channelUsername: String) :
 
     override fun FragmentChannelBinding.observeViewModel() {
 
-        name.text = channelUsername
-
-        twitchViewModel.loginUser(channelUsername)
+        twitchViewModel.loginUser(stream.description)
 
         twitchViewModel.loginFlow.onEach {
-            when(it){
+            when (it) {
                 is Resource.Success -> {
                     twitchViewModel.getAllStreamsByUserId("1103815460")
-                    toastMessage( it.value.data[0].toString())
+                    toastMessage(it.value.data[0].toString())
+                    val user = it.value.data[0]
+                    Glide.with(requireActivity()).
+                    load(user.profile_image_url)
+                        .centerCrop()
+                        .placeholder(R.drawable.ic_profile).into(channelAvatarPic)
+
                 }
+
                 is Resource.Error -> {
                     it.error?.printStackTrace()
-                    subtitle.text = it.error.toString()
                     toastMessage(it.error.toString())
                 }
+
                 is Resource.Loading -> {}
             }
         }.launchIn(viewLifecycleOwner.lifecycleScope)
 
         twitchViewModel.userVideosFlow.onEach {
-            when(it){
+            when (it) {
                 is Resource.Success -> {
                     toastMessage(it.value.data.size.toString())
                     adapter.submitList(it.value.data)
                 }
+
                 is Resource.Error -> {
                     it.error?.printStackTrace()
                     toastMessage(it.error.toString())
                 }
+
                 is Resource.Loading -> {}
             }
         }.launchIn(viewLifecycleOwner.lifecycleScope)

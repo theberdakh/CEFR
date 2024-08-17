@@ -2,8 +2,8 @@ package com.imax.cefr.domain.use_case.impl
 
 import android.util.Log
 import com.imax.cefr.core.base.result.ResultModel
-import com.imax.cefr.data.models.twitch.TwitchLoginData
-import com.imax.cefr.data.models.twitch.TwitchVideoData
+import com.imax.cefr.data.models.twitch.login.TwitchLoginData
+import com.imax.cefr.data.models.twitch.video.TwitchVideoData
 import com.imax.cefr.data.repository.twitch.TwitchRepository
 import com.imax.cefr.domain.use_case.TwitchUseCase
 

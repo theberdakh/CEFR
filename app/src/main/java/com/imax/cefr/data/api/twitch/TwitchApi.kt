@@ -1,10 +1,9 @@
 package com.imax.cefr.data.api.twitch
 
-import com.imax.cefr.data.models.twitch.TwitchLoginData
-import com.imax.cefr.data.models.twitch.TwitchVideoData
+import com.imax.cefr.data.models.twitch.login.TwitchLoginData
+import com.imax.cefr.data.models.twitch.video.TwitchVideoData
 import retrofit2.Response
 import retrofit2.http.GET
-import retrofit2.http.Header
 import retrofit2.http.Query
 
 interface TwitchApi {

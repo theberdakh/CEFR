@@ -1,4 +1,4 @@
-package com.imax.cefr.data.models.twitch
+package com.imax.cefr.data.models.twitch.video
 
 data class TwitchVideoDataChild(
     val created_at: String,

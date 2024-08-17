@@ -1,8 +1,8 @@
 package com.imax.cefr.data.repository.twitch
 
 import com.imax.cefr.core.base.result.ResultModel
-import com.imax.cefr.data.models.twitch.TwitchLoginData
-import com.imax.cefr.data.models.twitch.TwitchVideoData
+import com.imax.cefr.data.models.twitch.login.TwitchLoginData
+import com.imax.cefr.data.models.twitch.video.TwitchVideoData
 
 interface TwitchRepository {
     suspend fun getStreamsByUserId(userId: String): ResultModel<TwitchVideoData>
