@@ -1,5 +1,6 @@
 package com.imax.cefr.data.api.twitch
 
+import com.imax.cefr.data.models.twitch.live.TwitchLiveData
 import com.imax.cefr.data.models.twitch.login.TwitchLoginData
 import com.imax.cefr.data.models.twitch.video.TwitchVideoData
 import retrofit2.Response
@@ -17,5 +18,8 @@ interface TwitchApi {
     suspend fun loginUser(
         @Query("login") channelUsername: String)
     :Response<TwitchLoginData>
+
+    @GET("/helix/streams")
+    suspend fun getLive(@Query("user_id") userId: String): Response<TwitchLiveData>
 }
 

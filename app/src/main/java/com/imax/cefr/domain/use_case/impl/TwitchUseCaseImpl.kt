@@ -2,6 +2,7 @@ package com.imax.cefr.domain.use_case.impl
 
 import android.util.Log
 import com.imax.cefr.core.base.result.ResultModel
+import com.imax.cefr.data.models.twitch.live.TwitchLiveData
 import com.imax.cefr.data.models.twitch.login.TwitchLoginData
 import com.imax.cefr.data.models.twitch.video.TwitchVideoData
 import com.imax.cefr.data.repository.twitch.TwitchRepository
@@ -25,6 +26,15 @@ class TwitchUseCaseImpl(private val repository: TwitchRepository) : TwitchUseCas
 
     override suspend fun loginUser(channelUsername: String): ResultModel<TwitchLoginData> {
         val response = repository.loginUser(channelUsername)
+        return ResultModel(
+            status = response.status,
+            data = response.data,
+            errorThrowable = response.errorThrowable
+        )
+    }
+
+    override suspend fun getLive(userId: String): ResultModel<TwitchLiveData> {
+        val response = repository.getLive(userId)
         return ResultModel(
             status = response.status,
             data = response.data,
