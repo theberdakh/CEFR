@@ -37,11 +37,20 @@ fun FragmentManager.addFragmentToBackStack(
     @IdRes fragmentContainer: Int,
     fragment: Fragment
 ) {
-    val fragmentPopped = this.popBackStackImmediate(fragment.tag, 0)
-    if (!fragmentPopped && this.findFragmentByTag(fragment.tag) == null) {
-        val transaction = this.beginTransaction()
+    val fragmentInStack = this.findFragmentByTag(fragment.javaClass.simpleName)
+    val transaction = this.beginTransaction()
+
+    val fragments = this.fragments
+    for (existingFragment in fragments) {
+        if (existingFragment.isVisible) {
+            transaction.hide(existingFragment)
+        }
+    }
+
+    if (fragmentInStack == null) {
+
+        transaction.add(fragmentContainer, fragment, fragment.javaClass.simpleName)
         transaction.addToBackStack(fragment.javaClass.simpleName)
-        transaction.add(fragmentContainer, fragment)
         transaction.commit()
     }
 }

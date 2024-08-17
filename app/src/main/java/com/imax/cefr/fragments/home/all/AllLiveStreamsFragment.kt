@@ -8,7 +8,7 @@ import com.imax.cefr.core.base.fragment.BaseFragment
 import com.imax.cefr.core.base.fragment.addFragmentToBackStack
 import com.imax.cefr.data.models.stream.LiveStreamStatus
 import com.imax.cefr.databinding.FragmentListStreamsBinding
-import com.imax.cefr.fragments.home.AllStreamsPagingAdapter
+import com.imax.cefr.fragments.home.adapter.AllStreamsPagingAdapter
 import com.imax.cefr.fragments.teacher.stream.watch.WatchStreamFragment
 import com.imax.cefr.presentation.StreamViewModel
 import com.imax.cefr.utils.collectFlowLatest
@@ -30,7 +30,7 @@ class AllLiveStreamsFragment :
         streamViewModel.getAllStream(20)
         adapter.setOnClickSteamListener { stream ->
             requireActivity().supportFragmentManager.
-            addFragmentToBackStack(R.id.activity_container_view, WatchStreamFragment(stream.description))
+            addFragmentToBackStack(R.id.activity_container_view, WatchStreamFragment(stream))
         }
     }
 

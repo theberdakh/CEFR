@@ -1,5 +1,6 @@
 package com.imax.cefr.fragments.home.all
 
+import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.filter
 import com.imax.cefr.R
@@ -7,7 +8,7 @@ import com.imax.cefr.core.base.fragment.BaseFragment
 import com.imax.cefr.core.base.fragment.addFragmentToBackStack
 import com.imax.cefr.data.models.stream.LiveStreamStatus
 import com.imax.cefr.databinding.FragmentListStreamsBinding
-import com.imax.cefr.fragments.home.AllStreamsPagingAdapter
+import com.imax.cefr.fragments.home.adapter.AllStreamsPagingAdapter
 import com.imax.cefr.fragments.teacher.stream.watch.WatchStreamFragment
 import com.imax.cefr.presentation.StreamViewModel
 import com.imax.cefr.utils.collectFlowLatest
@@ -19,6 +20,11 @@ class AllEndedStreamsFragment: BaseFragment<FragmentListStreamsBinding>(Fragment
     private val streamViewModel by viewModel<StreamViewModel>()
     private val adapter by lazy { AllStreamsPagingAdapter() }
 
+    companion object {
+        const val ARG_TEACHER_ID = "teacherId"
+        const val ARG_TEACHER_NAME = "teacherName"
+    }
+
 
     override fun FragmentListStreamsBinding.navigation() {}
 
@@ -28,7 +34,12 @@ class AllEndedStreamsFragment: BaseFragment<FragmentListStreamsBinding>(Fragment
 
         adapter.setOnClickSteamListener { stream ->
             requireActivity().supportFragmentManager.
-            addFragmentToBackStack(R.id.activity_container_view, WatchStreamFragment(stream.description))
+            addFragmentToBackStack(R.id.activity_container_view, WatchStreamFragment(stream).apply {
+                arguments = Bundle().apply {
+                    putString(ARG_TEACHER_ID, stream.teacherId)
+                    putString(ARG_TEACHER_NAME, stream.teacherName)
+                }
+            })
         }
     }
 

@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:gravity="center_horizontal"
     android:background="@color/brand_color_first">
@@ -12,8 +13,8 @@
         android:layout_height="80dp"
         android:layout_marginTop="20dp"
         android:elevation="2dp"
-        android:foreground="@drawable/avatar"
-        android:src="@drawable/ellipse"
+        android:foreground="@drawable/ic_camera_box"
+        android:src="@drawable/avatar"
         />
 
     <TextView
@@ -38,6 +39,12 @@
         android:textColor="#353E81"
         android:textSize="12sp"
         android:textStyle="bold" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/teacherProfileRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
 
 

@@ -1,13 +1,29 @@
-package com.imax.cefr.fragments.home
+package com.imax.cefr.fragments.home.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.imax.cefr.R
 import com.imax.cefr.data.models.stream.StreamResponseData
 import com.imax.cefr.databinding.ItemScheduledLiveStreamBinding
 
+class StreamResponseDataItemCallback: DiffUtil.ItemCallback<StreamResponseData>(){
+    override fun areItemsTheSame(
+        oldItem: StreamResponseData,
+        newItem: StreamResponseData
+    ): Boolean {
+        return oldItem.id == newItem.id
+    }
+
+    override fun areContentsTheSame(
+        oldItem: StreamResponseData,
+        newItem: StreamResponseData
+    ): Boolean {
+        return oldItem.id == newItem.id && oldItem.teacherId == newItem.teacherId
+    }
+}
 
 class AllStreamsPagingAdapter :
     PagingDataAdapter<StreamResponseData, AllStreamsPagingAdapter.ViewHolder>(
