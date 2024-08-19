@@ -29,10 +29,9 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
             when(result) {
                 is Resource.Success -> {
 
-                    val password = etPassword.text.toString()
-                    localStorage.storePassword(password)
-
                     result.data?.let { loginResponseData ->
+                        val password = etPassword.text.toString()
+                        localStorage.storePassword(password)
                         localStorage.storeToken(loginResponseData.token)
                     }
 

@@ -29,6 +29,7 @@
         <activity
             android:name=".fragments.stream.live.LiveStreamActivity"
             android:theme="@style/LiveActivityTheme"
+            android:configChanges="orientation"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

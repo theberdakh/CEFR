@@ -1,10 +1,13 @@
 package com.imax.cefr.fragments.teacher.stream.watch
 
 import android.annotation.SuppressLint
+import android.content.pm.ActivityInfo
 import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.webkit.JavascriptInterface
 import android.webkit.WebChromeClient
+import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.FrameLayout
@@ -26,6 +29,15 @@ class WatchStreamFragment(private val stream: StreamResponseData) :
 
     private var fullScreenView: View? = null
 
+    inner class WebAppInterface {
+        @JavascriptInterface
+        fun onVideoEnd() {
+            // Handle video end event
+            requireActivity().runOnUiThread {
+             toastMessage("finished")  // Perform additional actions here, such as navigating or updating UI
+            }
+        }
+    }
 
     override fun FragmentWatchStreamBinding.observeViewModel() {}
 
@@ -68,8 +80,34 @@ class WatchStreamFragment(private val stream: StreamResponseData) :
     @SuppressLint("SetJavaScriptEnabled")
     private fun initWebView(webView: WebView, url: String) {
         webView.settings.javaScriptEnabled = true
-        webView.webViewClient = WebViewClient()
+
+        webView.addJavascriptInterface(WebAppInterface(), "Android")
+        webView.evaluateJavascript(
+            """
+            document.addEventListener('DOMContentLoaded', function() {
+                var player = document.querySelector('video');
+                if (player) {
+                    player.addEventListener('ended', function() {
+                        Android.onVideoEnd();
+                    });
+                }
+            });
+            """.trimIndent(), null
+        )
+
+
+        webView.webViewClient = object: WebViewClient() {
+
+            override fun shouldOverrideUrlLoading(
+                view: WebView?,
+                request: WebResourceRequest?
+            ): Boolean {
+               //to avoid going to other site
+                return true
+            }
+        }
         webView.webChromeClient = object : WebChromeClient(){
+
             override fun onShowCustomView(view: View?, callback: CustomViewCallback?) {
                 toastMessage("Show")
                 fullScreenView = view
@@ -78,11 +116,13 @@ class WatchStreamFragment(private val stream: StreamResponseData) :
                     FrameLayout.LayoutParams.MATCH_PARENT,
                     FrameLayout.LayoutParams.MATCH_PARENT
                 ))
+
                 webView.gone()
+
+
             }
 
             override fun onHideCustomView() {
-                toastMessage("Hide")
                 val decorView = requireActivity().window.decorView as FrameLayout
                 decorView.removeView(fullScreenView)
                 fullScreenView = null
@@ -96,12 +136,15 @@ class WatchStreamFragment(private val stream: StreamResponseData) :
     }
 
 
+
     @RequiresApi(Build.VERSION_CODES.O)
     override fun FragmentWatchStreamBinding.navigation() {}
 
     companion object {
         const val REQUEST_KEY = "requestKey"
         const val BUNDLE_KEY = "url"
+
+        @JvmStatic
         fun newInstance(newStream: StreamResponseData) : WatchStreamFragment {
             return WatchStreamFragment(newStream)
         }

@@ -1,6 +1,5 @@
 package com.imax.cefr.fragments.home.all
 
-import android.os.Bundle
 import com.imax.cefr.R
 import com.imax.cefr.core.base.fragment.BaseFragment
 import com.imax.cefr.core.base.fragment.addFragmentToBackStack
@@ -8,9 +7,6 @@ import com.imax.cefr.data.models.stream.StreamResponseData
 import com.imax.cefr.databinding.FragmentListStreamsBinding
 import com.imax.cefr.fragments.channel.ChannelFragment
 import com.imax.cefr.fragments.home.adapter.ChannelsListAdapter
-import com.imax.cefr.fragments.home.all.AllEndedStreamsFragment.Companion.ARG_TEACHER_ID
-import com.imax.cefr.fragments.home.all.AllEndedStreamsFragment.Companion.ARG_TEACHER_NAME
-import com.imax.cefr.fragments.teacher.stream.watch.WatchStreamFragment
 
 class AllChannelsFragment :
     BaseFragment<FragmentListStreamsBinding>(FragmentListStreamsBinding::inflate) {
