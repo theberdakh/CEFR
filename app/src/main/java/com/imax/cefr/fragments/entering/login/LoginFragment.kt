@@ -28,6 +28,10 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
         loginViewModel.loginFlow.onEach { result ->
             when(result) {
                 is Resource.Success -> {
+
+                    val password = etPassword.text.toString()
+                    localStorage.storePassword(password)
+
                     result.data?.let { loginResponseData ->
                         localStorage.storeToken(loginResponseData.token)
                     }
@@ -36,7 +40,8 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
                         user -> localStorage.storeUser(user)
                         localStorage.storeLogin(true)
                     }
-                    requireActivity().supportFragmentManager.changeNavGraph(R.id.activity_container_view, R.navigation.teacher_nav)
+                    requireActivity().supportFragmentManager.
+                    changeNavGraph(R.id.activity_container_view, R.navigation.teacher_nav)
 
                 }
                 is Resource.Error -> {

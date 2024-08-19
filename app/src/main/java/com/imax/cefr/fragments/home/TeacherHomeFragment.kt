@@ -23,7 +23,7 @@ class TeacherHomeFragment: BaseFragment<FragmentTeacherHomeBinding>(FragmentTeac
                 1 -> {
                     tab.text = "Planned"
                 }
-                2 -> tab.text = "Ended"
+                2 -> tab.text = "All channels"
             }
         }.attach()
 

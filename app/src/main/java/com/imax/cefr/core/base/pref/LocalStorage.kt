@@ -13,6 +13,7 @@ class LocalStorage(preference: SharedPreferences) {
     private var channelNamePreference by StringPreference(preference)
     private var userNamePreference by StringPreference(preference)
     private var streamKeyPreference by StringPreference(preference)
+    private var passwordPreference by StringPreference(preference)
 
     private var isLoggedInPreference by BooleanPreference(preference, false)
     private var tokenPreference by StringPreference(preference)
@@ -56,6 +57,14 @@ class LocalStorage(preference: SharedPreferences) {
 
     fun isLoggedIn(): Boolean {
         return isLoggedInPreference
+    }
+
+    fun storePassword(password: String) {
+        passwordPreference = password
+    }
+
+    fun getPassword(): String {
+        return passwordPreference
     }
 
 

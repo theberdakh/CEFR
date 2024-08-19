@@ -4,6 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.imax.cefr.fragments.home.all.AllChannelsFragment
 import com.imax.cefr.fragments.home.all.AllEndedStreamsFragment
 import com.imax.cefr.fragments.home.all.AllLiveStreamsFragment
 import com.imax.cefr.fragments.home.all.AllPlannedStreamsFragment
@@ -16,7 +17,7 @@ class TeacherHomeViewPagerAdapter(private val fragmentManager: FragmentManager, 
         return when(position) {
              0 -> AllLiveStreamsFragment()
              1 -> AllPlannedStreamsFragment()
-             else -> AllEndedStreamsFragment()
+             else -> AllChannelsFragment()
         }
     }
 

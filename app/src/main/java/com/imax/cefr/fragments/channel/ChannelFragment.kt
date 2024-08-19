@@ -49,15 +49,15 @@ class ChannelFragment(private val stream: StreamResponseData) :
         twitchViewModel.loginFlow.onEach {
             when (it) {
                 is Resource.Success -> {
-                    twitchViewModel.getAllStreamsByUserId("1103815460")
-                    toastMessage(it.value.data[0].toString())
-                    val user = it.value.data[0]
-                    Glide.with(requireActivity()).
-                    load(user.profile_image_url)
-                        .centerCrop()
-                        .placeholder(R.drawable.ic_profile).into(channelAvatarPic)
-
-                }
+                    if (it.value.data.isNotEmpty()){
+                        twitchViewModel.getAllStreamsByUserId(it.value.data[0].id)
+                        val user = it.value.data[0]
+                        Glide.with(requireActivity()).
+                        load(user.profile_image_url)
+                            .centerCrop()
+                            .placeholder(R.drawable.ic_profile).into(channelAvatarPic)
+                    }
+                   }
 
                 is Resource.Error -> {
                     it.error?.printStackTrace()
@@ -71,8 +71,10 @@ class ChannelFragment(private val stream: StreamResponseData) :
         twitchViewModel.userVideosFlow.onEach {
             when (it) {
                 is Resource.Success -> {
-                    toastMessage(it.value.data.size.toString())
-                    adapter.submitList(it.value.data)
+                    if (it.value.data.isNotEmpty()) {
+                        adapter.submitList(it.value.data)
+                    }
+
                 }
 
                 is Resource.Error -> {
