@@ -12,6 +12,7 @@ import com.imax.cefr.data.models.login.LoginRequestData
 import com.imax.cefr.data.models.login.LoginResponseData
 import com.imax.cefr.data.models.login.UserRole
 import com.imax.cefr.databinding.FragmentLoginBinding
+import com.imax.cefr.fragments.main.TeacherMainFragment
 import com.imax.cefr.presentation.LoginViewModel
 import com.imax.cefr.utils.toastMessage
 import kotlinx.coroutines.flow.launchIn
@@ -22,7 +23,6 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::inflate) {
 
     private val loginViewModel by viewModel<LoginViewModel>()
-
 
     override fun FragmentLoginBinding.observeViewModel() {
         loginViewModel.loginFlow.onEach { result ->
@@ -36,6 +36,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
                         user -> localStorage.storeUser(user)
                         localStorage.storeLogin(true)
                     }
+                    requireActivity().supportFragmentManager.changeNavGraph(R.id.activity_container_view, R.navigation.teacher_nav)
 
                 }
                 is Resource.Error -> {

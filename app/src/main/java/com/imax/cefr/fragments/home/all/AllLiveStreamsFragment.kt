@@ -37,6 +37,10 @@ class AllLiveStreamsFragment :
 
         listStreamsRecyclerView.adapter = twitchAdapter
 
+        listStreamsRefresh.setOnRefreshListener {
+            listStreamsRefresh.isRefreshing = false
+        }
+
       /*  listStreamsRefresh.setOnRefreshListener {
             adapter.submitData(lifecycle, PagingData.empty())
             streamViewModel.getAllStream(20)
